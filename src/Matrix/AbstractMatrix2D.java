@@ -80,7 +80,7 @@ public abstract class AbstractMatrix2D<T extends Number> implements MatrixType<T
       if(sameSize((AbstractMatrix2D) that)) {
         for(int i = 0; i < getNumberOfRows(); i++) {
           for(int j = 0; j < getNumberOfColumns(); j++) {
-            if(!matrix[i][j].equals(((AbstractMatrix2D<?>) that).position(i, j))) {
+            if(!position(i, j).equals(((AbstractMatrix2D<?>) that).position(i, j))) {
               return false;
             }
           }

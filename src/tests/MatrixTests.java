@@ -1,9 +1,12 @@
 package tests;
 
+import Exceptions.MatrixException;
 import Exceptions.MatrixMultiplicationException;
 import Exceptions.MatrixPositionException;
 import Matrix.DoubleMatrix2D;
 import org.junit.Test;
+
+import javax.swing.DefaultDesktopManager;
 
 import static org.junit.Assert.*;
 
@@ -109,6 +112,63 @@ public class MatrixTests {
     Double[][] matrixR3 = {{1.0, 0.0, 1.0}, {0.0, 1.0, 0.0}, {1.0, 0.0, 1.0}};
 
     new DoubleMatrix2D(matrixR2).multiply(new DoubleMatrix2D(matrixR3));
+  }
+
+  @Test
+  public void testDotProduct() {
+    Double[][] v1 = {{1.0}, {2.0}, {3.0}};
+    Double[][] v2 = {{4.0}, {5.0}, {6.0}};
+
+    assertEquals(
+        "Testing normal case for dot product",
+        new Double(32.0),
+        new DoubleMatrix2D(v1).dotProduct(new DoubleMatrix2D(v2)));
+  }
+
+  @Test(expected = MatrixMultiplicationException.class)
+  public void testDotProductException() {
+    Double[][] v1 = {{1.0, 2.0}, {1.0, 2.0}};
+
+    new DoubleMatrix2D(v1).dotProduct(new DoubleMatrix2D(v1));
+  }
+
+  @Test
+  public void testCofactor() {
+    Double[][] matrix = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
+    Double[][] cofactor1 = {{5.0, 6.0}, {8.0, 9.0}};
+
+    assertEquals(
+        "Cofactor Normal test 1",
+        new DoubleMatrix2D(cofactor1),
+        new DoubleMatrix2D(matrix).cofactor(0, 0));
+
+    Double[][] matrix1 = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
+    Double[][] cofactor2 = {{1.0}, {3.0}};
+
+    assertEquals(
+        "Cofactor normal test 2",
+        new DoubleMatrix2D(cofactor2),
+        new DoubleMatrix2D(matrix1).cofactor(2, 1));
+  }
+
+  @Test
+  public void testDeterminant() {
+    Double[][] matrix1 = {{1.0, 0.0, 1.0}, {0.0, 1.0, 0.0}, {1.0, 0.0, 1.0}};
+    Double[][] matrix2 = {{1.0, 1.0}, {2.0, 1.0}};
+    Double[][] matrix3 = {
+      {1.0, 0.0, 0.0, 0.0}, {0.0, 1.0, 0.0, 0.0}, {0.0, 0.0, 1.0, 1.0}, {0.0, 0.0, 2.0, 1.0}
+    };
+
+    assertEquals("Determinant Test 1", new Double(0), new DoubleMatrix2D(matrix1).determinant());
+    assertEquals("Determinant Test 2", new Double(-1), new DoubleMatrix2D(matrix2).determinant());
+    assertEquals("Determinant Test 3", new Double(-1), new DoubleMatrix2D(matrix3).determinant());
+  }
+
+  @Test(expected = MatrixException.class)
+  public void testDeterminantException() {
+    Double[][] matrix2 = {{1.0, 3.0}};
+
+    new DoubleMatrix2D(matrix2).determinant();
   }
 
   @Test(expected = MatrixPositionException.class)

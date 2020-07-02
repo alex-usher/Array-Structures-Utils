@@ -17,7 +17,6 @@ public class DoubleMatrix2D extends AbstractMatrix2D<Double> {
 
   public DoubleMatrix2D(Double[][] matrix) {
     super(matrix);
-    fill(0.0);
   }
 
   @Override
@@ -31,7 +30,7 @@ public class DoubleMatrix2D extends AbstractMatrix2D<Double> {
     for(int i = 0; i < getNumberOfRows(); i++) {
       for(int j = 0; j < getNumberOfColumns(); j++) {
         for(int k = 0; k < m.getNumberOfColumns(); k++) {
-          result.setPosition(result.position(i, k) + matrix[i][j] * m.position(j, k), i, k);
+          result.setPosition(result.position(i, k) + position(i, j) * m.position(j, k), i, k);
         }
       }
     }
@@ -54,19 +53,24 @@ public class DoubleMatrix2D extends AbstractMatrix2D<Double> {
 
   @Override
   public Double dotProduct(MatrixType<Double> m) {
-    if(!(getNumberOfRows() == 1 && m.getNumberOfRows() == 1) || !(getNumberOfColumns() == 1 || m.getNumberOfColumns() == 1)) {
-      throw new MatrixMultiplicationException("One of the dimensions must be 1");
-    }
+    if (getNumberOfRows() == 1 && m.getNumberOfRows() == 1
+        || getNumberOfColumns() == 1 && m.getNumberOfColumns() == 1) {
 
-    double result = 0;
+//      if(!sameSize(m)) {
+//        throw new MatrixMultiplicationException("Must be the same dimension");
+//      }
+      double result = 0;
 
-    for(int i = 0; i < Math.min(getNumberOfColumns(), m.getNumberOfColumns()); i++) {
-      for(int j = 0; j < Math.min(getNumberOfRows(), m.getNumberOfRows()); j++) {
-        result += matrix[i][j] * m.position(i, j);
+      for (int i = 0; i < Math.min(getNumberOfColumns(), m.getNumberOfColumns()); i++) {
+        for (int j = 0; j < Math.min(getNumberOfRows(), m.getNumberOfRows()); j++) {
+          result += position(j, i) * m.position(j, i);
+        }
       }
+
+      return result;
     }
 
-    return result;
+    throw new MatrixMultiplicationException("One of the dimensions must be 1");
   }
 
   @Override
@@ -81,10 +85,11 @@ public class DoubleMatrix2D extends AbstractMatrix2D<Double> {
       if(p != i) {
         for (int q = 0; q < getNumberOfColumns(); q++) {
           if (q != j) {
-            cofactor.matrix[k][l] = matrix[p][q];
+            cofactor.setPosition(position(p, q), k, l);
             l++;
           }
         }
+        l = 0;
         k++;
       }
     }
@@ -99,13 +104,13 @@ public class DoubleMatrix2D extends AbstractMatrix2D<Double> {
     }
 
     if(getNumberOfRows() == 1) {
-      return matrix[0][0];
+      return position(0, 0);
     }
 
     double det = 0;
 
     for(int i = 0; i < getNumberOfColumns(); i++) {
-      det += Math.pow(-1, i) * matrix[0][i] * cofactor(0, i).determinant();
+      det += Math.pow(-1, i) * position(0, i) * cofactor(0, i).determinant();
     }
 
     return det;

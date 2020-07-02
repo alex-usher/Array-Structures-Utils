@@ -6,8 +6,6 @@ import Exceptions.MatrixPositionException;
 import Matrix.DoubleMatrix2D;
 import org.junit.Test;
 
-import javax.swing.DefaultDesktopManager;
-
 import static org.junit.Assert.*;
 
 public class MatrixTests {
@@ -169,6 +167,40 @@ public class MatrixTests {
     Double[][] matrix2 = {{1.0, 3.0}};
 
     new DoubleMatrix2D(matrix2).determinant();
+  }
+
+  @Test
+  public void testCrossProduct() {
+    Double[][] matrixVertical = {{1.0}, {1.0}, {1.0}};
+    Double[][] expVertical = {{0.0}, {0.0}, {0.0}};
+
+    assertEquals(
+        "Cross Product Vertical",
+        new DoubleMatrix2D(expVertical),
+        new DoubleMatrix2D(matrixVertical).crossProduct(new DoubleMatrix2D(matrixVertical)));
+
+    Double[][] matrixHorizontal = {{1.0, 1.0, 1.0}};
+    Double[][] expHorizontal = {{0.0, 0.0, 0.0}};
+
+    assertEquals(
+        "Cross Product Horizontal",
+        new DoubleMatrix2D(expHorizontal),
+        new DoubleMatrix2D(matrixHorizontal).crossProduct(new DoubleMatrix2D(matrixHorizontal)));
+  }
+
+  @Test(expected = MatrixException.class)
+  public void testCrossProductSameDimension() {
+    Double[][] matrix = {{2.0, 0.0}, {2.0 ,0.0}, {2.0, 0.0}};
+
+    new DoubleMatrix2D(matrix).crossProduct(new DoubleMatrix2D(matrix));
+  }
+
+  @Test(expected = MatrixException.class)
+  public void testCrossProductDifferentDimension() {
+    DoubleMatrix2D mat1 = new DoubleMatrix2D(5);
+    DoubleMatrix2D mat2 = new DoubleMatrix2D(6);
+
+    mat1.crossProduct(mat2);
   }
 
   @Test(expected = MatrixPositionException.class)

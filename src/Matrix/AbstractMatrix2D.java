@@ -105,9 +105,4 @@ public abstract class AbstractMatrix2D<T extends Number> implements MatrixType<T
   public int hashCode() {
     return Arrays.hashCode(matrix);
   }
-
-  @Override
-  public MatrixType<T> crossProduct(MatrixType<T> m) {
-    return null;
-  }
 }

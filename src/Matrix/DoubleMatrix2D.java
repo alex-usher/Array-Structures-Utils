@@ -7,14 +7,17 @@ public class DoubleMatrix2D extends AbstractMatrix2D<Double> {
 
   public DoubleMatrix2D(int rows, int columns) {
     super(rows, columns);
+    fill(0.0);
   }
 
   public DoubleMatrix2D(int dimension) {
     super(dimension);
+    fill(0.0);
   }
 
   public DoubleMatrix2D(Double[][] matrix) {
     super(matrix);
+    fill(0.0);
   }
 
   @Override
@@ -28,7 +31,7 @@ public class DoubleMatrix2D extends AbstractMatrix2D<Double> {
     for(int i = 0; i < getNumberOfRows(); i++) {
       for(int j = 0; j < getNumberOfColumns(); j++) {
         for(int k = 0; k < m.getNumberOfColumns(); k++) {
-          result.matrix[i][k] += matrix[i][j] * m.position(j, k);
+          result.setPosition(result.position(i, k) + matrix[i][j] * m.position(j, k), i, k);
         }
       }
     }

@@ -44,6 +44,13 @@ public abstract class AbstractMatrix2D<T extends Number> implements MatrixType<T
   }
 
   @Override
+  public void fill(T item) {
+    for(int i = 0; i < getNumberOfRows(); i++) {
+      Arrays.fill(matrix[i], item);
+    }
+  }
+
+  @Override
   public T position(int i, int j) {
     checkValidPosition(i, j);
 
@@ -97,5 +104,10 @@ public abstract class AbstractMatrix2D<T extends Number> implements MatrixType<T
   @Override
   public int hashCode() {
     return Arrays.hashCode(matrix);
+  }
+
+  @Override
+  public MatrixType<T> crossProduct(MatrixType<T> m) {
+    return null;
   }
 }

@@ -17,6 +17,13 @@ public interface MatrixType<T extends Number> {
   int getNumberOfRows();
 
   /**
+   * Fills the matrix with the given value
+   *
+   * @param item - the value to fill the matrix with
+   */
+  void fill(T item);
+
+  /**
    * Returns the transpose of the object's matrix.
    * i.e. a number in position (i, j) will be at (j, i) in the returned matrix.
    *
@@ -98,4 +105,14 @@ public interface MatrixType<T extends Number> {
    * @return - true iff the two matrices have the same dimensions.
    */
   boolean sameSize(MatrixType<T> that);
+
+  /**
+   * Returns the cross product between the matrix and m
+   * Throws a MatrixException if the matrices are not vectors, i.e. of dimension
+   * n x 1.
+   *
+   * @param m - the matrix to perform the cross product with
+   * @return - the cross product of the two matrices.
+   */
+  MatrixType<T> crossProduct(MatrixType<T> m);
 }

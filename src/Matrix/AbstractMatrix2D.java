@@ -9,7 +9,7 @@ public abstract class AbstractMatrix2D<T extends Number> implements MatrixType<T
   private final int columns;
   private final int rows;
 
-  final T[][] matrix;
+  private T[][] matrix;
 
   @SuppressWarnings("unchecked")
   public AbstractMatrix2D(int rows, int columns) {

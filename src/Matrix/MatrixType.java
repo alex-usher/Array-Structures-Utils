@@ -1,5 +1,7 @@
 package Matrix;
 
+import Exceptions.MatrixException;
+
 public interface MatrixType<T extends Number> {
 
   /**
@@ -17,11 +19,35 @@ public interface MatrixType<T extends Number> {
   int getNumberOfRows();
 
   /**
+   * sets the stored matrix equal to the identity matrix for its dimension
+   * if the matrix is not square, throws a MatrixException
+   */
+  void identity();
+
+  /**
    * Fills the matrix with the given value
    *
    * @param item - the value to fill the matrix with
    */
   void fill(T item);
+
+  /**
+   * Fills the matrix with randomly generated numbers from a Gaussian
+   * distribution, between the two bounds given.
+   * Overwrites anything currently stored in the matrix
+   *
+   * @param lower - the lower bound
+   * @param upper - the upper bound
+   */
+  void randomGaussianFill(T lower, T upper);
+
+  /**
+   * Fills the matrix with random numbers, between the two bounds given.
+   *
+   * @param lower - the lower bound
+   * @param upper - the upper bound
+   */
+  void randomFill(T lower, T upper);
 
   /**
    * Returns the transpose of the object's matrix.
@@ -30,6 +56,24 @@ public interface MatrixType<T extends Number> {
    * @return the transpose of the stored matrix.
    */
   MatrixType<T> transpose();
+
+  /**
+   * Adds the matrix to the given parameter
+   * If they are not the same size, throws a MatrixException
+   *
+   * @param m - the matrix to add
+   * @return - the matrix addition of the two matrices
+   */
+  MatrixType<T> add(MatrixType<T> m);
+
+  /**
+   * Subtracts the given parameter from the matrix
+   * If they are not the same size, throws a MatrixException
+   *
+   * @param m - the matrix to subtract
+   * @return - the matrix subtraction of the two matrices
+   */
+  MatrixType<T> subtract(MatrixType<T> m);
 
   /**
    * Returns the object's matrix multiplied by the parameter. If the matrices cannot
@@ -114,5 +158,5 @@ public interface MatrixType<T extends Number> {
    * @param m - the matrix to perform the cross product with
    * @return - the cross product of the two matrices.
    */
-  MatrixType<T> crossProduct(MatrixType<T> m);
+  MatrixType<T> crossProduct(MatrixType<T> m);gi
 }

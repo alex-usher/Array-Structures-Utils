@@ -3,6 +3,8 @@ package Matrix;
 import Exceptions.MatrixException;
 import Exceptions.MatrixMultiplicationException;
 
+import java.util.Random;
+
 public class DoubleMatrix2D extends AbstractMatrix2D<Double> {
 
   public DoubleMatrix2D(int rows, int columns) {
@@ -39,12 +41,85 @@ public class DoubleMatrix2D extends AbstractMatrix2D<Double> {
   }
 
   @Override
+  public void identity() {
+    if(isSquare()) {
+      for(int i = 0; i < getNumberOfRows(); i++) {
+        for(int j = 0; j < getNumberOfColumns(); j++) {
+          if(i == j) {
+            setPosition(1.0, i, j);
+          } else {
+            setPosition(0.0, i, j);
+          }
+        }
+      }
+    } else {
+      throw new MatrixException("Matrix must be square");
+    }
+  }
+
+  @Override
+  public void randomGaussianFill(Double lower, Double upper) {
+    Random random = new Random();
+
+    for(int i = 0; i < getNumberOfRows(); i++) {
+      for(int j = 0; j < getNumberOfColumns(); j++) {
+        setPosition(random.nextGaussian() * (upper - lower) + lower, i, j);
+      }
+    }
+  }
+
+  @Override
+  public void randomFill(Double lower, Double upper) {
+    Random random = new Random();
+
+    for(int i = 0; i < getNumberOfRows(); i++) {
+      for(int j = 0; j < getNumberOfColumns(); j++) {
+        setPosition(random.nextDouble() * (upper - lower) + lower, i, j);
+      }
+    }
+  }
+
+  @Override
   public MatrixType<Double> transpose() {
     AbstractMatrix2D<Double> result = new DoubleMatrix2D(getNumberOfColumns(), getNumberOfRows());
 
     for (int i = 0; i < getNumberOfRows(); i++) {
       for (int j = 0; j < getNumberOfColumns(); j++) {
         result.setPosition(position(i, j), j, i);
+      }
+    }
+
+    return result;
+  }
+
+  @Override
+  public MatrixType<Double> add(MatrixType<Double> m) {
+    if(!sameSize(m)) {
+      throw new MatrixException("Matrices must be the same size");
+    }
+
+    AbstractMatrix2D<Double> result = new DoubleMatrix2D(getNumberOfRows(), getNumberOfColumns());
+
+    for(int i = 0; i < getNumberOfRows(); i++) {
+      for(int j = 0; j < getNumberOfColumns(); j++) {
+        result.setPosition(position(i, j) + m.position(i, j), i, j);
+      }
+    }
+
+    return result;
+  }
+
+  @Override
+  public MatrixType<Double> subtract(MatrixType<Double> m) {
+    if(!sameSize(m)) {
+      throw new MatrixException("Matrices must be the same size");
+    }
+
+    AbstractMatrix2D<Double> result = new DoubleMatrix2D(getNumberOfRows(), getNumberOfColumns());
+
+    for(int i = 0; i < getNumberOfRows(); i++) {
+      for(int j = 0; j < getNumberOfColumns(); j++) {
+        result.setPosition(position(i, j) - m.position(i, j), i, j);
       }
     }
 

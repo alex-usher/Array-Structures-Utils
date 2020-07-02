@@ -67,6 +67,56 @@ public class MatrixTests {
   }
 
   @Test
+  public void testAdd() {
+    Double[][] mat1 = {{1.0, 1.0, 1.0}, {0.0, 0.0, 0.0}, {2.0, 2.0, 2.0}};
+    Double[][] mat2 = {{0.0, 0.0, 0.0}, {1.0, 1.0, 1.0}, {-1.0, -1.0, -1.0}};
+    Double[][] exp1 = {{1.0, 1.0, 1.0}, {1.0, 1.0, 1.0}, {1.0, 1.0, 1.0}};
+
+    assertEquals(
+        "Addition test 1",
+        new DoubleMatrix2D(exp1),
+        new DoubleMatrix2D(mat1).add(new DoubleMatrix2D(mat2)));
+
+    assertEquals(
+        "Addition test 2",
+        new DoubleMatrix2D(4, 5),
+        new DoubleMatrix2D(4, 5).add(new DoubleMatrix2D(5, 4).transpose()));
+  }
+
+  @Test(expected = MatrixException.class)
+  public void testAddException() {
+    DoubleMatrix2D mat1 = new DoubleMatrix2D(5, 4);
+    DoubleMatrix2D mat2 = new DoubleMatrix2D(4, 5);
+
+    mat1.add(mat2);
+  }
+
+  @Test
+  public void testSubtract() {
+    Double[][] mat1 = {{1.0, 1.0, 1.0}, {0.0, 0.0, 0.0}, {2.0, 2.0, 2.0}};
+    Double[][] mat2 = {{0.0, 0.0, 0.0}, {-1.0, -1.0, -1.0}, {1.0, 1.0, 1.0}};
+    Double[][] exp1 = {{1.0, 1.0, 1.0}, {1.0, 1.0, 1.0}, {1.0, 1.0, 1.0}};
+
+    assertEquals(
+        "Subtraction test 1",
+        new DoubleMatrix2D(exp1),
+        new DoubleMatrix2D(mat1).subtract(new DoubleMatrix2D(mat2)));
+
+    assertEquals(
+            "Subtraction test 2",
+            new DoubleMatrix2D(4, 5),
+            new DoubleMatrix2D(4, 5).subtract(new DoubleMatrix2D(5, 4).transpose()));
+  }
+
+  @Test(expected = MatrixException.class)
+  public void testSubtractException(){
+    DoubleMatrix2D mat1 = new DoubleMatrix2D(5, 4);
+    DoubleMatrix2D mat2 = new DoubleMatrix2D(4, 5);
+
+    mat1.subtract(mat2);
+  }
+
+  @Test
   public void testMultiply() {
     Double[][] identity2 = {{1.0, 0.0}, {0.0, 1.0}};
     Double[][] identity3 = {{1.0, 0.0, 0.0}, {0.0, 1.0, 0.0}, {0.0, 0.0, 1.0}};
@@ -131,6 +181,32 @@ public class MatrixTests {
   }
 
   @Test
+  public void testIdentity() {
+    Double[][] identity2 = {{1.0, 0.0}, {0.0, 1.0}};
+    DoubleMatrix2D mat2 = new DoubleMatrix2D(2);
+    mat2.identity();
+    assertEquals("2x2 identity test", new DoubleMatrix2D(identity2), mat2);
+
+    Double[][] identity3 = {{1.0, 0.0, 0.0}, {0.0, 1.0, 0.0}, {0.0, 0.0, 1.0}};
+    DoubleMatrix2D mat3 = new DoubleMatrix2D(3);
+    mat3.identity();
+    assertEquals("3x3 identity test", new DoubleMatrix2D(identity3), mat3);
+
+    Double[][] identity4 = {
+      {1.0, 0.0, 0.0, 0.0}, {0.0, 1.0, 0.0, 0.0}, {0.0, 0.0, 1.0, 0.0}, {0.0, 0.0, 0.0, 1.0}
+    };
+    DoubleMatrix2D mat4 = new DoubleMatrix2D(4);
+    mat4.identity();
+    assertEquals("4x4 identity test", new DoubleMatrix2D(identity4), mat4);
+  }
+
+  @Test(expected = MatrixException.class)
+  public void testIdentityException() {
+    DoubleMatrix2D mat = new DoubleMatrix2D(3, 5);
+    mat.identity();
+  }
+
+  @Test
   public void testCofactor() {
     Double[][] matrix = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
     Double[][] cofactor1 = {{5.0, 6.0}, {8.0, 9.0}};
@@ -190,7 +266,7 @@ public class MatrixTests {
 
   @Test(expected = MatrixException.class)
   public void testCrossProductSameDimension() {
-    Double[][] matrix = {{2.0, 0.0}, {2.0 ,0.0}, {2.0, 0.0}};
+    Double[][] matrix = {{2.0, 0.0}, {2.0, 0.0}, {2.0, 0.0}};
 
     new DoubleMatrix2D(matrix).crossProduct(new DoubleMatrix2D(matrix));
   }

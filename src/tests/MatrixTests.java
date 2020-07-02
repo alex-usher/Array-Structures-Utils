@@ -86,10 +86,21 @@ public class MatrixTests {
         matrix3.multiply(new DoubleMatrix2D(identity3)));
 
     Double[][] expected = {{1.0, 2.0}, {0.0, 1.0}};
-    assertEquals("2x2 Matrix Multiplication", new DoubleMatrix2D(expected), matrix2.multiply(matrix2));
+    assertEquals(
+        "2x2 Matrix Multiplication", new DoubleMatrix2D(expected), matrix2.multiply(matrix2));
 
     Double[][] expected1 = {{2.0, 0.0, 2.0}, {0.0, 1.0, 0.0}, {2.0, 0.0, 2.0}};
-    assertEquals("3x3 Matrix Multiplication", new DoubleMatrix2D(expected1), matrix3.multiply(matrix3));
+    assertEquals(
+        "3x3 Matrix Multiplication", new DoubleMatrix2D(expected1), matrix3.multiply(matrix3));
+
+    Double[][] m1 = {{1.0, 0.0}, {0.0, 1.0}, {1.0, 0.0}};
+    Double[][] m2 = {{1.0, 1.0}, {1.0, 1.0}};
+    Double[][] exp = {{1.0, 1.0}, {1.0, 1.0}, {1.0, 1.0}};
+
+    assertEquals(
+        "Non-square Matrix Multiplication",
+        new DoubleMatrix2D(exp),
+        new DoubleMatrix2D(m1).multiply(new DoubleMatrix2D(m2)));
   }
 
   @Test(expected = MatrixMultiplicationException.class)

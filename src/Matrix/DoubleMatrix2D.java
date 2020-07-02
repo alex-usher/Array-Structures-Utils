@@ -42,10 +42,10 @@ public class DoubleMatrix2D extends AbstractMatrix2D<Double> {
 
   @Override
   public void identity() {
-    if(isSquare()) {
-      for(int i = 0; i < getNumberOfRows(); i++) {
-        for(int j = 0; j < getNumberOfColumns(); j++) {
-          if(i == j) {
+    if (isSquare()) {
+      for (int i = 0; i < getNumberOfRows(); i++) {
+        for (int j = 0; j < getNumberOfColumns(); j++) {
+          if (i == j) {
             setPosition(1.0, i, j);
           } else {
             setPosition(0.0, i, j);
@@ -61,8 +61,8 @@ public class DoubleMatrix2D extends AbstractMatrix2D<Double> {
   public void randomGaussianFill(Double lower, Double upper) {
     Random random = new Random();
 
-    for(int i = 0; i < getNumberOfRows(); i++) {
-      for(int j = 0; j < getNumberOfColumns(); j++) {
+    for (int i = 0; i < getNumberOfRows(); i++) {
+      for (int j = 0; j < getNumberOfColumns(); j++) {
         setPosition(random.nextGaussian() * (upper - lower) + lower, i, j);
       }
     }
@@ -72,8 +72,8 @@ public class DoubleMatrix2D extends AbstractMatrix2D<Double> {
   public void randomFill(Double lower, Double upper) {
     Random random = new Random();
 
-    for(int i = 0; i < getNumberOfRows(); i++) {
-      for(int j = 0; j < getNumberOfColumns(); j++) {
+    for (int i = 0; i < getNumberOfRows(); i++) {
+      for (int j = 0; j < getNumberOfColumns(); j++) {
         setPosition(random.nextDouble() * (upper - lower) + lower, i, j);
       }
     }
@@ -94,14 +94,14 @@ public class DoubleMatrix2D extends AbstractMatrix2D<Double> {
 
   @Override
   public MatrixType<Double> add(MatrixType<Double> m) {
-    if(!sameSize(m)) {
+    if (!sameSize(m)) {
       throw new MatrixException("Matrices must be the same size");
     }
 
     AbstractMatrix2D<Double> result = new DoubleMatrix2D(getNumberOfRows(), getNumberOfColumns());
 
-    for(int i = 0; i < getNumberOfRows(); i++) {
-      for(int j = 0; j < getNumberOfColumns(); j++) {
+    for (int i = 0; i < getNumberOfRows(); i++) {
+      for (int j = 0; j < getNumberOfColumns(); j++) {
         result.setPosition(position(i, j) + m.position(i, j), i, j);
       }
     }
@@ -111,14 +111,14 @@ public class DoubleMatrix2D extends AbstractMatrix2D<Double> {
 
   @Override
   public MatrixType<Double> subtract(MatrixType<Double> m) {
-    if(!sameSize(m)) {
+    if (!sameSize(m)) {
       throw new MatrixException("Matrices must be the same size");
     }
 
     AbstractMatrix2D<Double> result = new DoubleMatrix2D(getNumberOfRows(), getNumberOfColumns());
 
-    for(int i = 0; i < getNumberOfRows(); i++) {
-      for(int j = 0; j < getNumberOfColumns(); j++) {
+    for (int i = 0; i < getNumberOfRows(); i++) {
+      for (int j = 0; j < getNumberOfColumns(); j++) {
         result.setPosition(position(i, j) - m.position(i, j), i, j);
       }
     }
@@ -221,5 +221,207 @@ public class DoubleMatrix2D extends AbstractMatrix2D<Double> {
     }
 
     throw new MatrixException("Matrices must be of the same dimension");
+  }
+
+  @Override
+  public void scalarMultiplication(Double scalar) {
+    for(int i = 0; i < getNumberOfRows(); i++) {
+      for(int j = 0; j < getNumberOfColumns(); j++) {
+        setPosition(scalar * position(i, j), i, j);
+      }
+    }
+  }
+
+  @Override
+  public Double getMin() {
+    Double currentMin = null;
+
+    for (int i = 0; i < getNumberOfRows(); i++) {
+      for (int j = 0; j < getNumberOfColumns(); j++) {
+        if (currentMin == null || position(i, j) < currentMin) {
+          currentMin = position(i, j);
+        }
+      }
+    }
+
+    return currentMin;
+  }
+
+  @Override
+  public Double getMax() {
+    Double currentMax = null;
+
+    for (int i = 0; i < getNumberOfRows(); i++) {
+      for (int j = 0; j < getNumberOfColumns(); j++) {
+        if (currentMax == null || position(i, j) > currentMax) {
+          currentMax = position(i, j);
+        }
+      }
+    }
+
+    return currentMax;
+  }
+
+  @Override
+  public void normalise() {
+    // avoid using getMax() and getMin() individually to increase efficiency
+    Double currentMax = null;
+    Double currentMin = null;
+
+    for (int i = 0; i < getNumberOfRows(); i++) {
+      for (int j = 0; j < getNumberOfColumns(); j++) {
+        if (currentMax == null || currentMax < position(i, j)) {
+          currentMax = position(i, j);
+        }
+
+        if (currentMin == null || currentMin > position(i, j)) {
+          currentMin = position(i, j);
+        }
+      }
+    }
+
+    // normalise
+    for (int i = 0; i < getNumberOfRows(); i++) {
+      for (int j = 0; j < getNumberOfColumns(); j++) {
+        setPosition((position(i, j) - currentMin) / (currentMax - currentMin), i, j);
+      }
+    }
+  }
+
+  @Override
+  public void power(int power) {
+    for (int i = 0; i < getNumberOfRows(); i++) {
+      for (int j = 0; j < getNumberOfColumns(); j++) {
+        setPosition(Math.pow(position(i, j), power), i, j);
+      }
+    }
+  }
+
+  @Override
+  public void sin() {
+    for (int i = 0; i < getNumberOfRows(); i++) {
+      for (int j = 0; j < getNumberOfColumns(); j++) {
+        setPosition(Math.sin(position(i, j)), i, j);
+      }
+    }
+  }
+
+  @Override
+  public void cos() {
+    for (int i = 0; i < getNumberOfRows(); i++) {
+      for (int j = 0; j < getNumberOfColumns(); j++) {
+        setPosition(Math.cos(position(i, j)), i, j);
+      }
+    }
+  }
+
+  @Override
+  public void tan() {
+    for (int i = 0; i < getNumberOfRows(); i++) {
+      for (int j = 0; j < getNumberOfColumns(); j++) {
+        setPosition(Math.tan(position(i, j)), i, j);
+      }
+    }
+  }
+
+  @Override
+  public void arcsin() {
+    for (int i = 0; i < getNumberOfRows(); i++) {
+      for (int j = 0; j < getNumberOfColumns(); j++) {
+        if (inInverseRange(position(i, j))) {
+          setPosition(Math.asin(position(i, j)), i, j);
+        } else {
+          throw new MatrixException("Values out of range [-1, 1]");
+        }
+      }
+    }
+  }
+
+  @Override
+  public void arccos() {
+    for (int i = 0; i < getNumberOfRows(); i++) {
+      for (int j = 0; j < getNumberOfColumns(); j++) {
+        if (inInverseRange(position(i, j))) {
+          setPosition(Math.acos(position(i, j)), i, j);
+        } else {
+          throw new MatrixException("Values of of range [-1, 1]");
+        }
+      }
+    }
+  }
+
+  private boolean inInverseRange(double x) {
+    return x >= -1 && x <= 1;
+  }
+
+  @Override
+  public void arctan() {
+    for (int i = 0; i < getNumberOfRows(); i++) {
+      for (int j = 0; j < getNumberOfColumns(); j++) {
+        setPosition(Math.atan(position(i, j)), i, j);
+      }
+    }
+  }
+
+  @Override
+  public void sinh() {
+    for (int i = 0; i < getNumberOfRows(); i++) {
+      for (int j = 0; j < getNumberOfColumns(); j++) {
+        setPosition(Math.sinh(position(i, j)), i, j);
+      }
+    }
+  }
+
+  @Override
+  public void cosh() {
+    for (int i = 0; i < getNumberOfRows(); i++) {
+      for (int j = 0; j < getNumberOfColumns(); j++) {
+        setPosition(Math.cosh(position(i, j)), i, j);
+      }
+    }
+  }
+
+  @Override
+  public void tanh() {
+    for (int i = 0; i < getNumberOfRows(); i++) {
+      for (int j = 0; j < getNumberOfColumns(); j++) {
+        setPosition(Math.sinh(position(i, j)), i, j);
+      }
+    }
+  }
+
+  @Override
+  public void arsinh() {
+    for (int i = 0; i < getNumberOfRows(); i++) {
+      for (int j = 0; j < getNumberOfColumns(); j++) {
+        setPosition(Math.log(position(i, j) + Math.sqrt(Math.pow(position(i, j), 2) + 1)), i, j);
+      }
+    }
+  }
+
+  @Override
+  public void arcosh() {
+    for (int i = 0; i < getNumberOfRows(); i++) {
+      for (int j = 0; j < getNumberOfColumns(); j++) {
+        if (position(i, j) >= 1) {
+          setPosition(Math.log(position(i, j) + Math.sqrt(Math.pow(position(i, j), 2) - 1)), i, j);
+        } else {
+          throw new MatrixException("Values outside of range");
+        }
+      }
+    }
+  }
+
+  @Override
+  public void artanh() {
+    for (int i = 0; i < getNumberOfRows(); i++) {
+      for (int j = 0; j < getNumberOfColumns(); j++) {
+        if (position(i, j) > -1 && position(i, j) < 1) {
+          setPosition(0.5 * Math.log((position(i, j) + 1) / (position(i, j) - 1)), i, j);
+        } else {
+          throw new MatrixException("Values outside of range");
+        }
+      }
+    }
   }
 }

@@ -5,7 +5,7 @@ import Exceptions.NullMatrixException;
 
 import java.util.Arrays;
 
-public abstract class AbstractMatrix2D<T extends Number> implements MatrixType<T> {
+public abstract class AbstractMatrix2D<T extends Number & Comparable<T>> implements MatrixType<T> {
   private final int columns;
   private final int rows;
 
@@ -99,6 +99,36 @@ public abstract class AbstractMatrix2D<T extends Number> implements MatrixType<T
   public boolean sameSize(MatrixType<T> that) {
     return columns == that.getNumberOfColumns()
             && rows == that.getNumberOfRows();
+  }
+
+  @Override
+  public T getMin() {
+    T currentMin = null;
+
+    for(int i = 0; i < getNumberOfRows(); i++) {
+      for(int j = 0; j < getNumberOfColumns(); j++) {
+        if(currentMin == null || position(i, j).compareTo(currentMin) < 0) {
+          currentMin = position(i, j);
+        }
+      }
+    }
+
+    return currentMin;
+  }
+
+  @Override
+  public T getMax() {
+    T currentMax = null;
+
+    for(int i = 0; i < getNumberOfRows(); i++) {
+      for(int j = 0; j < getNumberOfColumns(); j++) {
+        if(currentMax == null || position(i, j).compareTo(currentMax) > 0) {
+          currentMax = position(i, j);
+        }
+      }
+    }
+
+    return currentMax;
   }
 
   @Override

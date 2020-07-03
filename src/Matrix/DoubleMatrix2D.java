@@ -5,7 +5,7 @@ import Exceptions.MatrixMultiplicationException;
 
 import java.util.Random;
 
-public class DoubleMatrix2D extends AbstractMatrix2D<Double> {
+public class DoubleMatrix2D extends AbstractMatrix2D<Double> implements FloatingPointMatrix {
 
   public DoubleMatrix2D(int rows, int columns) {
     super(rows, columns);
@@ -230,36 +230,6 @@ public class DoubleMatrix2D extends AbstractMatrix2D<Double> {
         setPosition(scalar * position(i, j), i, j);
       }
     }
-  }
-
-  @Override
-  public Double getMin() {
-    Double currentMin = null;
-
-    for (int i = 0; i < getNumberOfRows(); i++) {
-      for (int j = 0; j < getNumberOfColumns(); j++) {
-        if (currentMin == null || position(i, j) < currentMin) {
-          currentMin = position(i, j);
-        }
-      }
-    }
-
-    return currentMin;
-  }
-
-  @Override
-  public Double getMax() {
-    Double currentMax = null;
-
-    for (int i = 0; i < getNumberOfRows(); i++) {
-      for (int j = 0; j < getNumberOfColumns(); j++) {
-        if (currentMax == null || position(i, j) > currentMax) {
-          currentMax = position(i, j);
-        }
-      }
-    }
-
-    return currentMax;
   }
 
   @Override

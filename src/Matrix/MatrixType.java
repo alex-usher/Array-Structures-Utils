@@ -32,16 +32,6 @@ public interface MatrixType<T extends Number> {
   void fill(T item);
 
   /**
-   * Fills the matrix with randomly generated numbers from a Gaussian
-   * distribution, between the two bounds given.
-   * Overwrites anything currently stored in the matrix
-   *
-   * @param lower - the lower bound
-   * @param upper - the upper bound
-   */
-  void randomGaussianFill(T lower, T upper);
-
-  /**
    * Fills the matrix with random numbers, between the two bounds given.
    *
    * @param lower - the lower bound
@@ -182,76 +172,10 @@ public interface MatrixType<T extends Number> {
   T getMax();
 
   /**
-   * Normalises all the data in the matrix to within the range [0, 1]
-   * Uses the Min-Max feature scaling approach
-   */
-  void normalise();
-
-  /**
    * An element-wise operation, raising every element to the power of the
    * parameter
    *
    * @param power - the power to raise elements to
    */
   void power(int power);
-
-  /**
-   * An element-wise operation, applying the sine function
-   */
-  void sin();
-
-  /**
-   * An element-wise operation, applying the cosine function
-   */
-  void cos();
-
-  /**
-   * An element-wise operation, applying the tangent function
-   */
-  void tan();
-
-  /**
-   * An element-wise operation, applying the inverse sine function
-   */
-  void arcsin();
-
-  /**
-   * An element-wise operation, applying the inverse cosine function
-   */
-  void arccos();
-
-  /**
-   * An element-wise operation, applying the inverse tangent function
-   */
-  void arctan();
-
-  /**
-   * An element-wise operation, applying the hyperbolic sine function
-   */
-  void sinh();
-
-  /**
-   * An element-wise operation, applying the hyperbolic cosine function
-   */
-  void cosh();
-
-  /**
-   * An element-wise operation, applying the hyperbolic tangent function
-   */
-  void tanh();
-
-  /**
-   * An element-wise operation, applying the inverse hyperbolic sine function
-   */
-  void arsinh();
-
-  /**
-   * An element-wise operation, applying the inverse hyperbolic cosine function
-   */
-  void arcosh();
-
-  /**
-   * An element-wise operation, applying the inverse hyperbolic tangent function
-   */
-  void artanh();
 }

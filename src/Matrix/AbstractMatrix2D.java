@@ -45,8 +45,8 @@ public abstract class AbstractMatrix2D<T extends Number & Comparable<T>> impleme
 
   @Override
   public void fill(T item) {
-    for(int i = 0; i < getNumberOfRows(); i++) {
-      Arrays.fill(matrix[i], item);
+    for(T[] row : matrix) {
+      Arrays.fill(row, item);
     }
   }
 
@@ -84,10 +84,10 @@ public abstract class AbstractMatrix2D<T extends Number & Comparable<T>> impleme
   public T getMin() {
     T currentMin = null;
 
-    for(int i = 0; i < rows; i++) {
-      for(int j = 0; j < columns; j++) {
-        if(currentMin == null || position(i, j).compareTo(currentMin) < 0) {
-          currentMin = position(i, j);
+    for(T[] items : matrix) {
+      for(T item : items) {
+        if(currentMin == null || item.compareTo(currentMin) < 0) {
+          currentMin = item;
         }
       }
     }
@@ -99,10 +99,10 @@ public abstract class AbstractMatrix2D<T extends Number & Comparable<T>> impleme
   public T getMax() {
     T currentMax = null;
 
-    for(int i = 0; i < rows; i++) {
-      for(int j = 0; j < columns; j++) {
-        if(currentMax == null || position(i, j).compareTo(currentMax) > 0) {
-          currentMax = position(i, j);
+    for(T[] items : matrix) {
+      for(T item : items) {
+        if(currentMax == null || item.compareTo(currentMax) > 0) {
+          currentMax = item;
         }
       }
     }

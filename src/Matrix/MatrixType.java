@@ -2,7 +2,7 @@ package Matrix;
 
 import Exceptions.MatrixException;
 
-public interface MatrixType<T extends Number> {
+public interface MatrixType<T extends Number & Comparable<T>> {
 
   /**
    * Returns the number of columns in the matrix

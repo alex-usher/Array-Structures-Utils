@@ -9,7 +9,7 @@ public abstract class AbstractMatrix2D<T extends Number & Comparable<T>> impleme
   private final int columns;
   private final int rows;
 
-  private T[][] matrix;
+  private final T[][] matrix;
 
   @SuppressWarnings("unchecked")
   public AbstractMatrix2D(int rows, int columns) {
@@ -75,11 +75,53 @@ public abstract class AbstractMatrix2D<T extends Number & Comparable<T>> impleme
   }
 
   @Override
+  public boolean sameSize(MatrixType<T> that) {
+    return columns == that.getNumberOfColumns()
+            && rows == that.getNumberOfRows();
+  }
+
+  @Override
+  public T getMin() {
+    T currentMin = null;
+
+    for(int i = 0; i < rows; i++) {
+      for(int j = 0; j < columns; j++) {
+        if(currentMin == null || position(i, j).compareTo(currentMin) < 0) {
+          currentMin = position(i, j);
+        }
+      }
+    }
+
+    return currentMin;
+  }
+
+  @Override
+  public T getMax() {
+    T currentMax = null;
+
+    for(int i = 0; i < rows; i++) {
+      for(int j = 0; j < columns; j++) {
+        if(currentMax == null || position(i, j).compareTo(currentMax) > 0) {
+          currentMax = position(i, j);
+        }
+      }
+    }
+
+    return currentMax;
+  }
+
+  void checkNull(MatrixType<T> m) {
+    if(m == null) {
+      throw new NullMatrixException();
+    }
+  }
+
+  @Override
   public boolean equals(Object that) {
     if(that instanceof AbstractMatrix2D<?>) {
       if(sameSize((AbstractMatrix2D) that)) {
-        for(int i = 0; i < getNumberOfRows(); i++) {
-          for(int j = 0; j < getNumberOfColumns(); j++) {
+        for(int i = 0; i < rows; i++) {
+          for(int j = 0; j < columns; j++) {
             if(!position(i, j).equals(((AbstractMatrix2D<?>) that).position(i, j))) {
               return false;
             }
@@ -96,43 +138,33 @@ public abstract class AbstractMatrix2D<T extends Number & Comparable<T>> impleme
   }
 
   @Override
-  public boolean sameSize(MatrixType<T> that) {
-    return columns == that.getNumberOfColumns()
-            && rows == that.getNumberOfRows();
-  }
-
-  @Override
-  public T getMin() {
-    T currentMin = null;
-
-    for(int i = 0; i < getNumberOfRows(); i++) {
-      for(int j = 0; j < getNumberOfColumns(); j++) {
-        if(currentMin == null || position(i, j).compareTo(currentMin) < 0) {
-          currentMin = position(i, j);
-        }
-      }
-    }
-
-    return currentMin;
-  }
-
-  @Override
-  public T getMax() {
-    T currentMax = null;
-
-    for(int i = 0; i < getNumberOfRows(); i++) {
-      for(int j = 0; j < getNumberOfColumns(); j++) {
-        if(currentMax == null || position(i, j).compareTo(currentMax) > 0) {
-          currentMax = position(i, j);
-        }
-      }
-    }
-
-    return currentMax;
-  }
-
-  @Override
   public int hashCode() {
     return Arrays.hashCode(matrix);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+
+    sb.append("{ ");
+
+    for(int i = 0; i < rows; i++) {
+      sb.append("[");
+      for(int j = 0; j < columns; j++) {
+        sb.append(position(i, j).toString());
+
+        if(j < rows - 1) {
+          sb.append(", ");
+        }
+      }
+      sb.append("]");
+
+      if(i < rows - 1) {
+        sb.append(", \n  ");
+      }
+    }
+
+    sb.append(" }");
+    return sb.toString();
   }
 }

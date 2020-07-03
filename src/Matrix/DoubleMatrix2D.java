@@ -2,6 +2,7 @@ package Matrix;
 
 import Exceptions.MatrixException;
 import Exceptions.MatrixMultiplicationException;
+import Exceptions.NullMatrixException;
 
 import java.util.Random;
 
@@ -23,6 +24,8 @@ public class DoubleMatrix2D extends AbstractMatrix2D<Double> implements Floating
 
   @Override
   public MatrixType<Double> multiply(MatrixType<Double> m) {
+    checkNull(m);
+
     if (getNumberOfColumns() != m.getNumberOfRows()) {
       throw new MatrixMultiplicationException();
     }
@@ -94,6 +97,8 @@ public class DoubleMatrix2D extends AbstractMatrix2D<Double> implements Floating
 
   @Override
   public MatrixType<Double> add(MatrixType<Double> m) {
+    checkNull(m);
+
     if (!sameSize(m)) {
       throw new MatrixException("Matrices must be the same size");
     }
@@ -111,6 +116,8 @@ public class DoubleMatrix2D extends AbstractMatrix2D<Double> implements Floating
 
   @Override
   public MatrixType<Double> subtract(MatrixType<Double> m) {
+    checkNull(m);
+
     if (!sameSize(m)) {
       throw new MatrixException("Matrices must be the same size");
     }
@@ -128,6 +135,8 @@ public class DoubleMatrix2D extends AbstractMatrix2D<Double> implements Floating
 
   @Override
   public Double dotProduct(MatrixType<Double> m) {
+
+
     if (getNumberOfRows() == 1 && m.getNumberOfRows() == 1
         || getNumberOfColumns() == 1 && m.getNumberOfColumns() == 1) {
 
@@ -194,6 +203,8 @@ public class DoubleMatrix2D extends AbstractMatrix2D<Double> implements Floating
 
   @Override
   public MatrixType<Double> crossProduct(MatrixType<Double> m) {
+    checkNull(m);
+
     if (sameSize(m)) {
       if (getNumberOfRows() == 3 && getNumberOfColumns() == 1) {
         AbstractMatrix2D<Double> result =

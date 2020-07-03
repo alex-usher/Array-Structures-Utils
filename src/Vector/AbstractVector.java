@@ -47,23 +47,36 @@ public abstract class AbstractVector<T extends Number & Comparable<T>> implement
   public void setPosition(T elem, int pos) {
     checkValidPosition(pos);
 
+    if (elem == null) {
+      throw new NullPointerException("Element cannot be null");
+    }
+
     this.vector[pos] = elem;
   }
 
   @Override
   public T getMin() {
-    T[] sorted = vector.clone();
-    Arrays.sort(sorted);
+    if (getDimension() > 0) {
 
-    return sorted[0];
+      T[] sorted = vector.clone();
+      Arrays.sort(sorted);
+
+      return sorted[0];
+    }
+
+    return null;
   }
 
   @Override
   public T getMax() {
-    T[] sorted = vector.clone();
-    Arrays.sort(sorted);
+    if (getDimension() > 0) {
+      T[] sorted = vector.clone();
+      Arrays.sort(sorted);
 
-    return sorted[sorted.length - 1];
+      return sorted[sorted.length - 1];
+    }
+
+    return null;
   }
 
   @Override
@@ -71,8 +84,8 @@ public abstract class AbstractVector<T extends Number & Comparable<T>> implement
     T currentMin = null;
     int minLocation = 0;
 
-    for(int i = 0; i < getDimension(); i++) {
-      if(currentMin == null || position(i).compareTo(currentMin) < 0) {
+    for (int i = 0; i < getDimension(); i++) {
+      if (currentMin == null || position(i).compareTo(currentMin) < 0) {
         currentMin = position(i);
         minLocation = i;
       }
@@ -86,8 +99,8 @@ public abstract class AbstractVector<T extends Number & Comparable<T>> implement
     T currentMax = null;
     int maxLocation = 0;
 
-    for(int i = 0; i < getDimension(); i++) {
-      if(currentMax == null || position(i).compareTo(currentMax) > 0) {
+    for (int i = 0; i < getDimension(); i++) {
+      if (currentMax == null || position(i).compareTo(currentMax) > 0) {
         currentMax = position(i);
         maxLocation = i;
       }
@@ -98,20 +111,63 @@ public abstract class AbstractVector<T extends Number & Comparable<T>> implement
 
   @Override
   public void fill(T item) {
-    for(int i = 0; i < getDimension(); i++) {
+    for (int i = 0; i < getDimension(); i++) {
       setPosition(item, i);
     }
   }
 
   void checkValidPosition(int pos) {
-    if(pos < 0 || pos >= vector.length) {
+    if (pos < 0 || pos >= vector.length) {
       throw new VectorPositionException("Position out of bounds");
     }
   }
 
   void checkNull(VectorType<T> vector) {
-    if(vector == null) {
+    if (vector == null) {
       throw new NullVectorException();
     }
+  }
+
+  @Override
+  public boolean equals(Object that) {
+    if(that instanceof AbstractVector<?>) {
+      if(sameSize((AbstractVector) that)) {
+        for(int i = 0; i < getDimension(); i++) {
+          if(!vector[i].equals(((AbstractVector<?>) that).position(i))) {
+            return false;
+          }
+        }
+
+        return true;
+      }
+
+      return false;
+    }
+
+    return false;
+  }
+
+  @Override
+  public int hashCode() {
+    return Arrays.hashCode(vector);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+
+    sb.append("[");
+
+    for(int i = 0; i < getDimension(); i++) {
+      sb.append(vector[i].toString());
+
+      if(i < getDimension() - 1){
+        sb.append(", ");
+      }
+    }
+
+    sb.append("]");
+
+    return sb.toString();
   }
 }

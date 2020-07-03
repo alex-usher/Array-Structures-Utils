@@ -60,6 +60,10 @@ public abstract class AbstractMatrix2D<T extends Number & Comparable<T>> impleme
   public void setPosition(T item, int i, int j) {
     checkValidPosition(i, j);
 
+    if(item == null) {
+      throw new NullPointerException("Item cannot be null");
+    }
+
     this.matrix[i][j] = item;
   }
 

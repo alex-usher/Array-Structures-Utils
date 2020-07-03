@@ -73,7 +73,7 @@ public class DoubleVector extends AbstractVector<Double> implements DoubleVector
     VectorType<Double> result = new DoubleVector(getDimension());
 
     for(int i = 0; i < getDimension(); i++) {
-      setPosition(position(i) + vector.position(i), i);
+      result.setPosition(position(i) + vector.position(i), i);
     }
 
     return result;
@@ -90,7 +90,7 @@ public class DoubleVector extends AbstractVector<Double> implements DoubleVector
     VectorType<Double> result = new DoubleVector(getDimension());
 
     for(int i = 0; i < getDimension(); i++) {
-      setPosition(position(i) - vector.position(i), i);
+      result.setPosition(position(i) - vector.position(i), i);
     }
 
     return result;

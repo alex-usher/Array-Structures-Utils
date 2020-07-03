@@ -135,7 +135,7 @@ public class DoubleMatrix2D extends AbstractMatrix2D<Double> implements Floating
 
   @Override
   public Double dotProduct(MatrixType<Double> m) {
-
+    checkNull(m);
 
     if (getNumberOfRows() == 1 && m.getNumberOfRows() == 1
         || getNumberOfColumns() == 1 && m.getNumberOfColumns() == 1) {

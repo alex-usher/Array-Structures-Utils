@@ -64,6 +64,8 @@ public class IntegerMatrix2D extends AbstractMatrix2D<Integer> {
 
   @Override
   public MatrixType<Integer> add(MatrixType<Integer> m) {
+    checkNull(m);
+
     if (!sameSize(m)) {
       throw new MatrixException("Matrices must be the same size");
     }
@@ -81,6 +83,8 @@ public class IntegerMatrix2D extends AbstractMatrix2D<Integer> {
 
   @Override
   public MatrixType<Integer> subtract(MatrixType<Integer> m) {
+    checkNull(m);
+
     if (!sameSize(m)) {
       throw new MatrixException("Matrices must be the same size");
     }
@@ -98,6 +102,8 @@ public class IntegerMatrix2D extends AbstractMatrix2D<Integer> {
 
   @Override
   public MatrixType<Integer> multiply(MatrixType<Integer> m) {
+    checkNull(m);
+
     if (getNumberOfColumns() != m.getNumberOfRows()) {
       throw new MatrixMultiplicationException();
     }
@@ -117,6 +123,8 @@ public class IntegerMatrix2D extends AbstractMatrix2D<Integer> {
 
   @Override
   public Integer dotProduct(MatrixType<Integer> m) {
+    checkNull(m);
+
     if (getNumberOfRows() == 1 && m.getNumberOfRows() == 1
             || getNumberOfColumns() == 1 && m.getNumberOfColumns() == 1) {
 
@@ -180,6 +188,8 @@ public class IntegerMatrix2D extends AbstractMatrix2D<Integer> {
 
   @Override
   public MatrixType<Integer> crossProduct(MatrixType<Integer> m) {
+    checkNull(m);
+
     if (sameSize(m)) {
       if (getNumberOfRows() == 3 && getNumberOfColumns() == 1) {
         AbstractMatrix2D<Integer> result =

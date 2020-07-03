@@ -213,9 +213,9 @@ public class VectorTests {
     Double[] arrExp = {1.0, 1.0, 1.0};
 
     assertEquals(
-            "Normal add() test",
-            new DoubleVector(arrExp),
-            new DoubleVector(arr1).subtract(new DoubleVector(arr2)));
+        "Normal add() test",
+        new DoubleVector(arrExp),
+        new DoubleVector(arr1).subtract(new DoubleVector(arr2)));
   }
 
   @Test(expected = NullPointerException.class)
@@ -235,13 +235,54 @@ public class VectorTests {
     Double[] arr3 = {1.0, 1.0, 1.0, 1.0};
     Double[] arr4 = {1.0, 1.0};
 
-    assertEquals("Dot product with same size vectors", 6.0 , new DoubleVector(arr1).dotProduct(new DoubleVector(arr2)), 0.0001);
-    assertEquals("Dot product with larger vector", 6.0, new DoubleVector(arr1).dotProduct(new DoubleVector(arr3)), 0.0001);
-    assertEquals("Dot product with smaller vector", 3.0, new DoubleVector(arr1).dotProduct(new DoubleVector(arr4)), 0.0001);
+    assertEquals(
+        "Dot product with same size vectors",
+        6.0,
+        new DoubleVector(arr1).dotProduct(new DoubleVector(arr2)),
+        0.0001);
+    assertEquals(
+        "Dot product with larger vector",
+        6.0,
+        new DoubleVector(arr1).dotProduct(new DoubleVector(arr3)),
+        0.0001);
+    assertEquals(
+        "Dot product with smaller vector",
+        3.0,
+        new DoubleVector(arr1).dotProduct(new DoubleVector(arr4)),
+        0.0001);
   }
 
   @Test(expected = NullPointerException.class)
   public void testDotProductException() {
     new DoubleVector(5).dotProduct(null);
+  }
+
+  @Test
+  public void testCrossProduct() {
+    Double[] arr1 = {1.0, 1.0, 1.0};
+    Double[] exp1 = {0.0, 0.0, 0.0};
+
+    assertEquals(
+        "Cross product of a vector with itself",
+        new DoubleVector(exp1),
+        new DoubleVector(arr1).crossProduct(new DoubleVector(arr1)));
+
+    Double[] arr2 = {1.0, 2.0, 1.0};
+    Double[] exp2 = {-1.0, 0.0, 1.0};
+
+    assertEquals(
+        "Cross product of two vectors",
+        new DoubleVector(exp2),
+        new DoubleVector(arr1).crossProduct(new DoubleVector(arr2)));
+  }
+
+  @Test(expected = NullPointerException.class)
+  public void testCrossProductException1() {
+    new DoubleVector(3).crossProduct(null);
+  }
+
+  @Test(expected = VectorException.class)
+  public void testCrossProductException2() {
+    new DoubleVector(4).crossProduct(new DoubleVector(5));
   }
 }

@@ -3,6 +3,7 @@ package tests;
 import Exceptions.MatrixException;
 import Exceptions.MatrixMultiplicationException;
 import Exceptions.MatrixPositionException;
+import Exceptions.NullMatrixException;
 import Matrix.DoubleMatrix2D;
 import org.junit.Test;
 
@@ -84,11 +85,16 @@ public class MatrixTests {
   }
 
   @Test(expected = MatrixException.class)
-  public void testAddException() {
+  public void testAddException1() {
     DoubleMatrix2D mat1 = new DoubleMatrix2D(5, 4);
     DoubleMatrix2D mat2 = new DoubleMatrix2D(4, 5);
 
     mat1.add(mat2);
+  }
+
+  @Test(expected = NullMatrixException.class)
+  public void testAddException2() {
+    new DoubleMatrix2D(3, 2).add(null);
   }
 
   @Test
@@ -109,11 +115,16 @@ public class MatrixTests {
   }
 
   @Test(expected = MatrixException.class)
-  public void testSubtractException(){
+  public void testSubtractException1(){
     DoubleMatrix2D mat1 = new DoubleMatrix2D(5, 4);
     DoubleMatrix2D mat2 = new DoubleMatrix2D(4, 5);
 
     mat1.subtract(mat2);
+  }
+
+  @Test(expected = NullMatrixException.class)
+  public void testSubtractException2() {
+    new DoubleMatrix2D(5, 3).subtract(null);
   }
 
   @Test
@@ -155,11 +166,16 @@ public class MatrixTests {
   }
 
   @Test(expected = MatrixMultiplicationException.class)
-  public void testMultiplyException() {
+  public void testMultiplyException1() {
     Double[][] matrixR2 = {{1.0, 1.0}, {0.0, 1.0}};
     Double[][] matrixR3 = {{1.0, 0.0, 1.0}, {0.0, 1.0, 0.0}, {1.0, 0.0, 1.0}};
 
     new DoubleMatrix2D(matrixR2).multiply(new DoubleMatrix2D(matrixR3));
+  }
+
+  @Test(expected = NullMatrixException.class)
+  public void testMultiplyException2() {
+    new DoubleMatrix2D(5, 3).multiply(null);
   }
 
   @Test
@@ -174,10 +190,15 @@ public class MatrixTests {
   }
 
   @Test(expected = MatrixMultiplicationException.class)
-  public void testDotProductException() {
+  public void testDotProductException1() {
     Double[][] v1 = {{1.0, 2.0}, {1.0, 2.0}};
 
     new DoubleMatrix2D(v1).dotProduct(new DoubleMatrix2D(v1));
+  }
+
+  @Test(expected = NullMatrixException.class)
+  public void testDotProductException2() {
+    new DoubleMatrix2D(5).dotProduct(null);
   }
 
   @Test
@@ -304,5 +325,10 @@ public class MatrixTests {
 
     DoubleMatrix2D differentSize = new DoubleMatrix2D(2);
     assertFalse("Different size matrix", matrix.sameSize(differentSize));
+  }
+
+  @Test(expected = NullMatrixException.class)
+  public void testSameSizeException() {
+    new DoubleMatrix2D(5).sameSize(null);
   }
 }

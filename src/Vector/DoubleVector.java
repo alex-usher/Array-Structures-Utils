@@ -119,6 +119,8 @@ public class DoubleVector extends AbstractVector<Double> implements DoubleVector
       result.setPosition(position(1) * vector.position(2) - position(2) * vector.position(1), 0);
       result.setPosition(position(2) * vector.position(0) - position(0) * vector.position(2), 1);
       result.setPosition(position(0) * vector.position(1) - position(1) * vector.position(0), 2);
+
+      return result;
     }
 
     throw new VectorException("Vectors must be of dimension 3");

@@ -80,6 +80,8 @@ public abstract class AbstractMatrix2D<T extends Number & Comparable<T>> impleme
 
   @Override
   public boolean sameSize(MatrixType<T> that) {
+    checkNull(that);
+
     return columns == that.getNumberOfColumns()
             && rows == that.getNumberOfRows();
   }

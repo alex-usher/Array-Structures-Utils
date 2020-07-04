@@ -389,4 +389,69 @@ public class ArrayUtilsTests {
     assertEquals("Byte median test for normal values, odd length", 3, ArrayUtils.median(byte3));
     assertEquals("Byte median test for normal values, even length", 3, ArrayUtils.median(byte4));
   }
+
+  @Test
+  public void testVectorLength() {
+    int[] int1 = {};
+    int[] int2 = {1, 1, 1, 1};
+    int[] int3 = {1, 2, 3, -1};
+    int[] int4 = {0};
+
+    assertEquals("Integer vector length test for empty array", 0, ArrayUtils.vectorLength(int1), 0.0001);
+    assertEquals("Integer vector length test for the same value", 2, ArrayUtils.vectorLength(int2), 0.0001);
+    assertEquals("Integer vector length test for normal values", Math.sqrt(15), ArrayUtils.vectorLength(int3), 0.0001);
+    assertEquals("Integer vector length test for normal values", 0, ArrayUtils.vectorLength(int4), 0.0001);
+
+    double[] double1 = {};
+    double[] double2 = {1, 1, 1, 1};
+    double[] double3 = {1, 2, 3, -1};
+    double[] double4 = {0};
+    double[] double5 = {1 / Math.sqrt(2), 1 / Math.sqrt(2)};
+
+    assertEquals("Double vector length test for empty array", 0, ArrayUtils.vectorLength(double1), 0.0001);
+    assertEquals("Double vector length test for the same value", 2, ArrayUtils.vectorLength(double2), 0.0001);
+    assertEquals("Double vector length test for normal values", Math.sqrt(15), ArrayUtils.vectorLength(double3), 0.0001);
+    assertEquals("Double vector length test for normal values", 0, ArrayUtils.vectorLength(double4), 0.0001);
+    assertEquals("Double vector length test for unit vector", 1, ArrayUtils.vectorLength(double5), 0.0001);
+
+    float[] float1 = {};
+    float[] float2 = {1, 1, 1, 1};
+    float[] float3 = {1, 2, 3, -1};
+    float[] float4 = {0};
+
+    assertEquals("Float vector length test for empty array", 0, ArrayUtils.vectorLength(float1), 0.0001);
+    assertEquals("Float vector length test for the same value", 2, ArrayUtils.vectorLength(float2), 0.0001);
+    assertEquals("Float vector length test for normal values", Math.sqrt(15), ArrayUtils.vectorLength(float3), 0.0001);
+    assertEquals("Float vector length test for normal values", 0, ArrayUtils.vectorLength(float4), 0.0001);
+
+    long[] long1 = {};
+    long[] long2 = {1, 1, 1, 1};
+    long[] long3 = {1, 2, 3, -1};
+    long[] long4 = {0};
+
+    assertEquals("Long vector length test for empty array", 0, ArrayUtils.vectorLength(long1), 0.0001);
+    assertEquals("Long vector length test for the same value", 2, ArrayUtils.vectorLength(long2), 0.0001);
+    assertEquals("Long vector length test for normal values", Math.sqrt(15), ArrayUtils.vectorLength(long3), 0.0001);
+    assertEquals("Long vector length test for normal values", 0, ArrayUtils.vectorLength(long4), 0.0001);
+
+    short[] short1 = {};
+    short[] short2 = {1, 1, 1, 1};
+    short[] short3 = {1, 2, 3, -1};
+    short[] short4 = {0};
+
+    assertEquals("Short vector length test for empty array", 0, ArrayUtils.vectorLength(short1), 0.0001);
+    assertEquals("Short vector length test for the same value", 2, ArrayUtils.vectorLength(short2), 0.0001);
+    assertEquals("Short vector length test for normal values", Math.sqrt(15), ArrayUtils.vectorLength(short3), 0.0001);
+    assertEquals("Short vector length test for normal values", 0, ArrayUtils.vectorLength(short4), 0.0001);
+
+    byte[] byte1 = {};
+    byte[] byte2 = {1, 1, 1, 1};
+    byte[] byte3 = {1, 2, 3, -1};
+    byte[] byte4 = {0};
+
+    assertEquals("Byte vector length test for empty array", 0, ArrayUtils.vectorLength(byte1), 0.0001);
+    assertEquals("Byte vector length test for the same value", 2, ArrayUtils.vectorLength(byte2), 0.0001);
+    assertEquals("Byte vector length test for normal values", Math.sqrt(15), ArrayUtils.vectorLength(byte3), 0.0001);
+    assertEquals("Byte vector length test for normal values", 0, ArrayUtils.vectorLength(byte4), 0.0001);
+  }
 }

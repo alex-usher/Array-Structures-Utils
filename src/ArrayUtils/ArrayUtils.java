@@ -7,6 +7,78 @@ public final class ArrayUtils {
   private ArrayUtils() {}
 
   /**
+   * Creates a new array of type double, where each element of the new array
+   * is the corresponding element of {@code arr} but cast to a double
+   *
+   * @param arr - the array to cast
+   * @return - a new array containing the values of the given array, but
+   *           in the type Double
+   */
+  public static double[] intToDouble(int[] arr) {
+    return Arrays.stream(arr).mapToDouble(x -> (double) x).toArray();
+  }
+
+  /**
+   * Creates a new array of type long, where each element of the new array
+   * is the corresponding element of {@code arr} but cast to a long
+   *
+   * @param arr - the array to cast
+   * @return - a new array containing the values of the given array, but
+   *           in the type long
+   */
+  public static long[] intToLong(int[] arr) {
+    return Arrays.stream(arr).mapToLong(x -> (long) x).toArray();
+  }
+
+  /**
+   * Creates a new array of type int, where each element of the new array
+   * is the corresponding element of {@code arr} but cast to a int
+   *
+   * @param arr - the array to cast
+   * @return - a new array containing the values of the given array, but
+   *           in the type int
+   */
+  public static int[] doubleToInt(double[] arr) {
+    return Arrays.stream(arr).mapToInt(x -> (int) Math.floor(x)).toArray();
+  }
+
+  /**
+   * Creates a new array of type long, where each element of the new array
+   * is the corresponding element of {@code arr} but cast to a long
+   *
+   * @param arr - the array to cast
+   * @return - a new array containing the values of the given array, but
+   *           in the type long
+   */
+  public static long[] doubleToLong(double[] arr) {
+    return Arrays.stream(arr).mapToLong(x -> (long) Math.floor(x)).toArray();
+  }
+
+  /**
+   * Creates a new array of type double, where each element of the new array
+   * is the corresponding element of {@code arr} but cast to a double
+   *
+   * @param arr - the array to cast
+   * @return - a new array containing the values of the given array, but
+   *           in the type double
+   */
+  public static double[] longToDouble(long[] arr) {
+    return Arrays.stream(arr).mapToDouble(x -> (double) x).toArray();
+  }
+
+  /**
+   * Creates a new array of type int, where each element of the new array
+   * is the corresponding element of {@code arr} but cast to a int
+   *
+   * @param arr - the array to cast
+   * @return - a new array containing the values of the given array, but
+   *           in the type int
+   */
+  public static int[] longToInt(long[] arr) {
+    return Arrays.stream(arr).mapToInt(x -> (int) x).toArray();
+  }
+
+  /**
    * Returns a new array representing the addition of the two arrays If the arrays are not the same
    * length, the returned array is the size of the shorter array
    *

@@ -753,7 +753,7 @@ public final class ArrayUtils {
   }
 
   /**
-   * Returns the first most frequently occurring value in the array
+   * Returns the last most frequently occurring value in the array
    * (the mode)
    *
    * @param arr - the array to find the mode value for
@@ -781,7 +781,7 @@ public final class ArrayUtils {
   }
 
   /**
-   * Returns the first most frequently occurring value in the array
+   * Returns the last most frequently occurring value in the array
    * (the mode)
    *
    * @param arr - the array to find the mode value for
@@ -809,7 +809,7 @@ public final class ArrayUtils {
   }
 
   /**
-   * Returns the first most frequently occurring value in the array
+   * Returns the last most frequently occurring value in the array
    * (the mode)
    *
    * @param arr - the array to find the mode value for
@@ -837,7 +837,7 @@ public final class ArrayUtils {
   }
 
   /**
-   * Returns the first most frequently occurring value in the array
+   * Returns the last most frequently occurring value in the array
    * (the mode)
    *
    * @param arr - the array to find the mode value for
@@ -865,7 +865,7 @@ public final class ArrayUtils {
   }
 
   /**
-   * Returns the first most frequently occurring value in the array
+   * Returns the last most frequently occurring value in the array
    * (the mode)
    *
    * @param arr - the array to find the mode value for
@@ -893,7 +893,7 @@ public final class ArrayUtils {
   }
 
   /**
-   * Returns the first most frequently occurring value in the array
+   * Returns the last most frequently occurring value in the array
    * (the mode)
    *
    * @param arr - the array to find the mode value for
@@ -938,7 +938,7 @@ public final class ArrayUtils {
 
     return arr.length % 2 == 1
             ? copy[arr.length / 2]
-            : (copy[arr.length / 2] + copy[arr.length / 2 + 1]) / 2;
+            : (copy[arr.length / 2 - 1] + copy[arr.length / 2]) / 2;
   }
 
   /**
@@ -959,7 +959,7 @@ public final class ArrayUtils {
 
     return arr.length % 2 == 1
             ? copy[arr.length / 2]
-            : (copy[arr.length / 2] + copy[arr.length / 2 + 1]) / 2;
+            : (copy[arr.length / 2 - 1] + copy[arr.length / 2]) / 2;
   }
 
   /**
@@ -980,7 +980,7 @@ public final class ArrayUtils {
 
     return arr.length % 2 == 1
             ? copy[arr.length / 2]
-            : (copy[arr.length / 2] + copy[arr.length / 2 + 1]) / 2;
+            : (copy[arr.length / 2 - 1] + copy[arr.length / 2]) / 2;
   }
 
   /**
@@ -1001,7 +1001,7 @@ public final class ArrayUtils {
 
     return arr.length % 2 == 1
             ? copy[arr.length / 2]
-            : (copy[arr.length / 2] + copy[arr.length / 2 + 1]) / 2;
+            : (copy[arr.length / 2 - 1] + copy[arr.length / 2]) / 2;
   }
 
   /**
@@ -1022,7 +1022,7 @@ public final class ArrayUtils {
 
     return arr.length % 2 == 1
             ? copy[arr.length / 2]
-            : (short) ((copy[arr.length / 2] + copy[arr.length / 2 + 1]) / (short) 2);
+            : (short) ((copy[arr.length / 2 - 1] + copy[arr.length / 2]) / (short) 2);
   }
 
   /**
@@ -1043,6 +1043,6 @@ public final class ArrayUtils {
 
     return arr.length % 2 == 1
             ? copy[arr.length / 2]
-            : (byte) ((copy[arr.length / 2] + copy[arr.length / 2 + 1]) / (byte) 2);
+            : (byte) ((copy[arr.length / 2 - 1] + copy[arr.length / 2]) / (byte) 2);
   }
 }

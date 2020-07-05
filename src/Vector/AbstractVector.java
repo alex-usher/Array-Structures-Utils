@@ -4,6 +4,7 @@ import Exceptions.NullVectorException;
 import Exceptions.VectorPositionException;
 
 import java.util.Arrays;
+import ArrayUtils.ArrayUtils;
 
 public abstract class AbstractVector<T extends Number & Comparable<T>> implements VectorType<T> {
   private final T[] vector;
@@ -56,64 +57,31 @@ public abstract class AbstractVector<T extends Number & Comparable<T>> implement
 
   @Override
   public T getMin() {
-    if (getDimension() > 0) {
-
-      T[] sorted = vector.clone();
-      Arrays.sort(sorted);
-
-      return sorted[0];
-    }
-
-    return null;
+    return ArrayUtils.minimum(vector);
   }
 
   @Override
   public T getMax() {
-    if (getDimension() > 0) {
-      T[] sorted = vector.clone();
-      Arrays.sort(sorted);
-
-      return sorted[sorted.length - 1];
-    }
-
-    return null;
+    return ArrayUtils.maximum(vector);
   }
 
   @Override
   public int getMinLocation() {
-    T currentMin = null;
-    int minLocation = 0;
-
-    for (int i = 0; i < getDimension(); i++) {
-      if (currentMin == null || position(i).compareTo(currentMin) < 0) {
-        currentMin = position(i);
-        minLocation = i;
-      }
-    }
-
-    return minLocation;
+    return ArrayUtils.minimumLocation(vector);
   }
 
   @Override
   public int getMaxLocation() {
-    T currentMax = null;
-    int maxLocation = 0;
-
-    for (int i = 0; i < getDimension(); i++) {
-      if (currentMax == null || position(i).compareTo(currentMax) > 0) {
-        currentMax = position(i);
-        maxLocation = i;
-      }
-    }
-
-    return maxLocation;
+    return ArrayUtils.maximumLocation(vector);
   }
 
   @Override
   public void fill(T item) {
-    for (int i = 0; i < getDimension(); i++) {
-      setPosition(item, i);
+    if(item == null) {
+      throw new NullPointerException();
     }
+
+    Arrays.fill(vector, item);
   }
 
   void checkValidPosition(int pos) {

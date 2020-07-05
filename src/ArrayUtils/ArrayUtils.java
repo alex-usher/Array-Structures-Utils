@@ -7,72 +7,66 @@ public final class ArrayUtils {
   private ArrayUtils() {}
 
   /**
-   * Creates a new array of type double, where each element of the new array
-   * is the corresponding element of {@code arr} but cast to a double
+   * Creates a new array of type double, where each element of the new array is the corresponding
+   * element of {@code arr} but cast to a double
    *
    * @param arr - the array to cast
-   * @return - a new array containing the values of the given array, but
-   *           in the type Double
+   * @return - a new array containing the values of the given array, but in the type Double
    */
   public static double[] intToDouble(int[] arr) {
     return Arrays.stream(arr).mapToDouble(x -> (double) x).toArray();
   }
 
   /**
-   * Creates a new array of type long, where each element of the new array
-   * is the corresponding element of {@code arr} but cast to a long
+   * Creates a new array of type long, where each element of the new array is the corresponding
+   * element of {@code arr} but cast to a long
    *
    * @param arr - the array to cast
-   * @return - a new array containing the values of the given array, but
-   *           in the type long
+   * @return - a new array containing the values of the given array, but in the type long
    */
   public static long[] intToLong(int[] arr) {
     return Arrays.stream(arr).mapToLong(x -> (long) x).toArray();
   }
 
   /**
-   * Creates a new array of type int, where each element of the new array
-   * is the corresponding element of {@code arr} but cast to a int
+   * Creates a new array of type int, where each element of the new array is the corresponding
+   * element of {@code arr} but cast to a int
    *
    * @param arr - the array to cast
-   * @return - a new array containing the values of the given array, but
-   *           in the type int
+   * @return - a new array containing the values of the given array, but in the type int
    */
   public static int[] doubleToInt(double[] arr) {
     return Arrays.stream(arr).mapToInt(x -> (int) Math.floor(x)).toArray();
   }
 
   /**
-   * Creates a new array of type long, where each element of the new array
-   * is the corresponding element of {@code arr} but cast to a long
+   * Creates a new array of type long, where each element of the new array is the corresponding
+   * element of {@code arr} but cast to a long
    *
    * @param arr - the array to cast
-   * @return - a new array containing the values of the given array, but
-   *           in the type long
+   * @return - a new array containing the values of the given array, but in the type long
    */
   public static long[] doubleToLong(double[] arr) {
     return Arrays.stream(arr).mapToLong(x -> (long) Math.floor(x)).toArray();
   }
 
   /**
-   * Creates a new array of type double, where each element of the new array
-   * is the corresponding element of {@code arr} but cast to a double
+   * Creates a new array of type double, where each element of the new array is the corresponding
+   * element of {@code arr} but cast to a double
    *
    * @param arr - the array to cast
-   * @return - a new array containing the values of the given array, but
-   *           in the type double
+   * @return - a new array containing the values of the given array, but in the type double
    */
   public static double[] longToDouble(long[] arr) {
     return Arrays.stream(arr).mapToDouble(x -> (double) x).toArray();
   }
 
   /**
-   * Creates a new array of type int, where each element of the new array
-   * is the corresponding element of {@code arr} but cast to a int
+   * Creates a new array of type int, where each element of the new array is the corresponding
+   * element of {@code arr} but cast to a int
    *
    * @param arr - the array to cast
-   * @return - a new array containing the values of the given array, but
-   *           in the type int
+   * @return - a new array containing the values of the given array, but in the type int
    */
   public static int[] longToInt(long[] arr) {
     return Arrays.stream(arr).mapToInt(x -> (int) x).toArray();
@@ -825,8 +819,7 @@ public final class ArrayUtils {
   }
 
   /**
-   * Returns the last most frequently occurring value in the array
-   * (the mode)
+   * Returns the last most frequently occurring value in the array (the mode)
    *
    * @param arr - the array to find the mode value for
    * @return - the mode of the array
@@ -853,8 +846,7 @@ public final class ArrayUtils {
   }
 
   /**
-   * Returns the last most frequently occurring value in the array
-   * (the mode)
+   * Returns the last most frequently occurring value in the array (the mode)
    *
    * @param arr - the array to find the mode value for
    * @return - the mode of the array
@@ -875,14 +867,13 @@ public final class ArrayUtils {
     }
 
     return map.entrySet().stream()
-            .reduce((x, y) -> x.getValue() > y.getValue() ? x : y)
-            .get()
-            .getKey();
+        .reduce((x, y) -> x.getValue() > y.getValue() ? x : y)
+        .get()
+        .getKey();
   }
 
   /**
-   * Returns the last most frequently occurring value in the array
-   * (the mode)
+   * Returns the last most frequently occurring value in the array (the mode)
    *
    * @param arr - the array to find the mode value for
    * @return - the mode of the array
@@ -903,14 +894,13 @@ public final class ArrayUtils {
     }
 
     return map.entrySet().stream()
-            .reduce((x, y) -> x.getValue() > y.getValue() ? x : y)
-            .get()
-            .getKey();
+        .reduce((x, y) -> x.getValue() > y.getValue() ? x : y)
+        .get()
+        .getKey();
   }
 
   /**
-   * Returns the last most frequently occurring value in the array
-   * (the mode)
+   * Returns the last most frequently occurring value in the array (the mode)
    *
    * @param arr - the array to find the mode value for
    * @return - the mode of the array
@@ -931,14 +921,13 @@ public final class ArrayUtils {
     }
 
     return map.entrySet().stream()
-            .reduce((x, y) -> x.getValue() > y.getValue() ? x : y)
-            .get()
-            .getKey();
+        .reduce((x, y) -> x.getValue() > y.getValue() ? x : y)
+        .get()
+        .getKey();
   }
 
   /**
-   * Returns the last most frequently occurring value in the array
-   * (the mode)
+   * Returns the last most frequently occurring value in the array (the mode)
    *
    * @param arr - the array to find the mode value for
    * @return - the mode of the array
@@ -959,14 +948,13 @@ public final class ArrayUtils {
     }
 
     return map.entrySet().stream()
-            .reduce((x, y) -> x.getValue() > y.getValue() ? x : y)
-            .get()
-            .getKey();
+        .reduce((x, y) -> x.getValue() > y.getValue() ? x : y)
+        .get()
+        .getKey();
   }
 
   /**
-   * Returns the last most frequently occurring value in the array
-   * (the mode)
+   * Returns the last most frequently occurring value in the array (the mode)
    *
    * @param arr - the array to find the mode value for
    * @return - the mode of the array
@@ -987,21 +975,20 @@ public final class ArrayUtils {
     }
 
     return map.entrySet().stream()
-            .reduce((x, y) -> x.getValue() > y.getValue() ? x : y)
-            .get()
-            .getKey();
+        .reduce((x, y) -> x.getValue() > y.getValue() ? x : y)
+        .get()
+        .getKey();
   }
 
   /**
-   * Returns the median average of the array
-   * Calculated by sorting the array and taking the midpoint if of odd length,
-   * or the mean of the midpoints if of even length.
+   * Returns the median average of the array Calculated by sorting the array and taking the midpoint
+   * if of odd length, or the mean of the midpoints if of even length.
    *
    * @param arr - the array to find the median average of
    * @return - the median average of the array
    */
   public static int median(int[] arr) {
-    if(arr.length == 0) {
+    if (arr.length == 0) {
       return 0;
     }
 
@@ -1009,20 +996,19 @@ public final class ArrayUtils {
     Arrays.sort(copy);
 
     return arr.length % 2 == 1
-            ? copy[arr.length / 2]
-            : (copy[arr.length / 2 - 1] + copy[arr.length / 2]) / 2;
+        ? copy[arr.length / 2]
+        : (copy[arr.length / 2 - 1] + copy[arr.length / 2]) / 2;
   }
 
   /**
-   * Returns the median average of the array
-   * Calculated by sorting the array and taking the midpoint if of odd length,
-   * or the mean of the midpoints if of even length.
+   * Returns the median average of the array Calculated by sorting the array and taking the midpoint
+   * if of odd length, or the mean of the midpoints if of even length.
    *
    * @param arr - the array to find the median average of
    * @return - the median average of the array
    */
   public static double median(double[] arr) {
-    if(arr.length == 0) {
+    if (arr.length == 0) {
       return 0;
     }
 
@@ -1030,20 +1016,19 @@ public final class ArrayUtils {
     Arrays.sort(copy);
 
     return arr.length % 2 == 1
-            ? copy[arr.length / 2]
-            : (copy[arr.length / 2 - 1] + copy[arr.length / 2]) / 2;
+        ? copy[arr.length / 2]
+        : (copy[arr.length / 2 - 1] + copy[arr.length / 2]) / 2;
   }
 
   /**
-   * Returns the median average of the array
-   * Calculated by sorting the array and taking the midpoint if of odd length,
-   * or the mean of the midpoints if of even length.
+   * Returns the median average of the array Calculated by sorting the array and taking the midpoint
+   * if of odd length, or the mean of the midpoints if of even length.
    *
    * @param arr - the array to find the median average of
    * @return - the median average of the array
    */
   public static float median(float[] arr) {
-    if(arr.length == 0) {
+    if (arr.length == 0) {
       return 0;
     }
 
@@ -1051,20 +1036,19 @@ public final class ArrayUtils {
     Arrays.sort(copy);
 
     return arr.length % 2 == 1
-            ? copy[arr.length / 2]
-            : (copy[arr.length / 2 - 1] + copy[arr.length / 2]) / 2;
+        ? copy[arr.length / 2]
+        : (copy[arr.length / 2 - 1] + copy[arr.length / 2]) / 2;
   }
 
   /**
-   * Returns the median average of the array
-   * Calculated by sorting the array and taking the midpoint if of odd length,
-   * or the mean of the midpoints if of even length.
+   * Returns the median average of the array Calculated by sorting the array and taking the midpoint
+   * if of odd length, or the mean of the midpoints if of even length.
    *
    * @param arr - the array to find the median average of
    * @return - the median average of the array
    */
   public static long median(long[] arr) {
-    if(arr.length == 0) {
+    if (arr.length == 0) {
       return 0;
     }
 
@@ -1072,20 +1056,19 @@ public final class ArrayUtils {
     Arrays.sort(copy);
 
     return arr.length % 2 == 1
-            ? copy[arr.length / 2]
-            : (copy[arr.length / 2 - 1] + copy[arr.length / 2]) / 2;
+        ? copy[arr.length / 2]
+        : (copy[arr.length / 2 - 1] + copy[arr.length / 2]) / 2;
   }
 
   /**
-   * Returns the median average of the array
-   * Calculated by sorting the array and taking the midpoint if of odd length,
-   * or the mean of the midpoints if of even length.
+   * Returns the median average of the array Calculated by sorting the array and taking the midpoint
+   * if of odd length, or the mean of the midpoints if of even length.
    *
    * @param arr - the array to find the median average of
    * @return - the median average of the array
    */
   public static short median(short[] arr) {
-    if(arr.length == 0) {
+    if (arr.length == 0) {
       return 0;
     }
 
@@ -1093,20 +1076,19 @@ public final class ArrayUtils {
     Arrays.sort(copy);
 
     return arr.length % 2 == 1
-            ? copy[arr.length / 2]
-            : (short) ((copy[arr.length / 2 - 1] + copy[arr.length / 2]) / (short) 2);
+        ? copy[arr.length / 2]
+        : (short) ((copy[arr.length / 2 - 1] + copy[arr.length / 2]) / (short) 2);
   }
 
   /**
-   * Returns the median average of the array
-   * Calculated by sorting the array and taking the midpoint if of odd length,
-   * or the mean of the midpoints if of even length.
+   * Returns the median average of the array Calculated by sorting the array and taking the midpoint
+   * if of odd length, or the mean of the midpoints if of even length.
    *
    * @param arr - the array to find the median average of
    * @return - the median average of the array
    */
   public static byte median(byte[] arr) {
-    if(arr.length == 0) {
+    if (arr.length == 0) {
       return 0;
     }
 
@@ -1114,7 +1096,87 @@ public final class ArrayUtils {
     Arrays.sort(copy);
 
     return arr.length % 2 == 1
-            ? copy[arr.length / 2]
-            : (byte) ((copy[arr.length / 2 - 1] + copy[arr.length / 2]) / (byte) 2);
+        ? copy[arr.length / 2]
+        : (byte) ((copy[arr.length / 2 - 1] + copy[arr.length / 2]) / (byte) 2);
+  }
+
+  /**
+   * Returns the minimum value stored in the array, or null if the array is empty
+   *
+   * @param arr - the array to find the minimum value for
+   * @param <T> - the type for the array can be any class which is a subclass of
+   *           Comparable
+   * @return - the minimum value in the array
+   */
+  public static <T extends Comparable<T>> T minimum(T[] arr) {
+    T minValue = null;
+    for (T value : arr) {
+      if (minValue == null || value.compareTo(minValue) < 0) {
+        minValue = value;
+      }
+    }
+
+    return minValue;
+  }
+
+  /**
+   * Returns the maximum value stored in the array, or null if the array is empty
+   *
+   * @param arr - the array to find the maximum value for
+   * @param <T> - the type for the array can be any class which is a subclass of
+   *           Comparable.
+   * @return - the minimum value in the array
+   */
+  public static <T extends Comparable<T>> T maximum(T[] arr) {
+    T maxValue = null;
+    for(T value : arr) {
+      if(maxValue == null || value.compareTo(maxValue) > 0) {
+        maxValue = value;
+      }
+    }
+
+    return maxValue;
+  }
+
+  /**
+   * Returns the index of the array's minimum value, or -1 if the array is empty
+   *
+   * @param arr - the array to find the minimum location for
+   * @param <T> - the array can be any type which extends Comparable
+   * @return - the index of the minimum value stored in the array
+   */
+  public static <T extends Comparable<T>> int minimumLocation(T[] arr) {
+    T minValue = null;
+    int minLocation = -1;
+
+    for(int i = 0; i < arr.length; i++) {
+      if(minValue == null || arr[i].compareTo(minValue) < 0) {
+        minValue = arr[i];
+        minLocation = i;
+      }
+    }
+
+    return minLocation;
+  }
+
+  /**
+   * Returns the index of the array's minimum value, or -1 if the array is empty
+   *
+   * @param arr - the array to find the minimum location for
+   * @param <T> - the array can be any type which extends Comparable
+   * @return - the index of the minimum value stored in the array
+   */
+  public static <T extends Comparable<T>> int maximumLocation(T[] arr) {
+    T maxValue = null;
+    int maxLocation = -1;
+
+    for(int i = 0; i < arr.length; i++) {
+      if(maxValue == null || arr[i].compareTo(maxValue) > 0) {
+        maxValue = arr[i];
+        maxLocation = i;
+      }
+    }
+
+    return maxLocation;
   }
 }

@@ -134,7 +134,7 @@ public class VectorTests {
         "getMinLocation() with all same values", 0, new DoubleVector(arr1).getMinLocation());
 
     Double[] arr2 = {};
-    assertEquals("getMinLocation() with empty array", 0, new DoubleVector(arr2).getMinLocation());
+    assertEquals("getMinLocation() with empty array", -1, new DoubleVector(arr2).getMinLocation());
   }
 
   @Test
@@ -147,7 +147,7 @@ public class VectorTests {
         "getMaxLocation() with all same values", 0, new DoubleVector(arr1).getMaxLocation());
 
     Double[] arr2 = {};
-    assertEquals("getMaxLocation() with empty array", 0, new DoubleVector(arr2).getMaxLocation());
+    assertEquals("getMaxLocation() with empty array", -1, new DoubleVector(arr2).getMaxLocation());
   }
 
   @Test

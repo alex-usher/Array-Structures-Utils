@@ -397,10 +397,17 @@ public class ArrayUtilsTests {
     int[] int3 = {1, 2, 3, -1};
     int[] int4 = {0};
 
-    assertEquals("Integer vector length test for empty array", 0, ArrayUtils.vectorLength(int1), 0.0001);
-    assertEquals("Integer vector length test for the same value", 2, ArrayUtils.vectorLength(int2), 0.0001);
-    assertEquals("Integer vector length test for normal values", Math.sqrt(15), ArrayUtils.vectorLength(int3), 0.0001);
-    assertEquals("Integer vector length test for normal values", 0, ArrayUtils.vectorLength(int4), 0.0001);
+    assertEquals(
+        "Integer vector length test for empty array", 0, ArrayUtils.vectorLength(int1), 0.0001);
+    assertEquals(
+        "Integer vector length test for the same value", 2, ArrayUtils.vectorLength(int2), 0.0001);
+    assertEquals(
+        "Integer vector length test for normal values",
+        Math.sqrt(15),
+        ArrayUtils.vectorLength(int3),
+        0.0001);
+    assertEquals(
+        "Integer vector length test for normal values", 0, ArrayUtils.vectorLength(int4), 0.0001);
 
     double[] double1 = {};
     double[] double2 = {1, 1, 1, 1};
@@ -408,50 +415,186 @@ public class ArrayUtilsTests {
     double[] double4 = {0};
     double[] double5 = {1 / Math.sqrt(2), 1 / Math.sqrt(2)};
 
-    assertEquals("Double vector length test for empty array", 0, ArrayUtils.vectorLength(double1), 0.0001);
-    assertEquals("Double vector length test for the same value", 2, ArrayUtils.vectorLength(double2), 0.0001);
-    assertEquals("Double vector length test for normal values", Math.sqrt(15), ArrayUtils.vectorLength(double3), 0.0001);
-    assertEquals("Double vector length test for normal values", 0, ArrayUtils.vectorLength(double4), 0.0001);
-    assertEquals("Double vector length test for unit vector", 1, ArrayUtils.vectorLength(double5), 0.0001);
+    assertEquals(
+        "Double vector length test for empty array", 0, ArrayUtils.vectorLength(double1), 0.0001);
+    assertEquals(
+        "Double vector length test for the same value",
+        2,
+        ArrayUtils.vectorLength(double2),
+        0.0001);
+    assertEquals(
+        "Double vector length test for normal values",
+        Math.sqrt(15),
+        ArrayUtils.vectorLength(double3),
+        0.0001);
+    assertEquals(
+        "Double vector length test for normal values", 0, ArrayUtils.vectorLength(double4), 0.0001);
+    assertEquals(
+        "Double vector length test for unit vector", 1, ArrayUtils.vectorLength(double5), 0.0001);
 
     float[] float1 = {};
     float[] float2 = {1, 1, 1, 1};
     float[] float3 = {1, 2, 3, -1};
     float[] float4 = {0};
 
-    assertEquals("Float vector length test for empty array", 0, ArrayUtils.vectorLength(float1), 0.0001);
-    assertEquals("Float vector length test for the same value", 2, ArrayUtils.vectorLength(float2), 0.0001);
-    assertEquals("Float vector length test for normal values", Math.sqrt(15), ArrayUtils.vectorLength(float3), 0.0001);
-    assertEquals("Float vector length test for normal values", 0, ArrayUtils.vectorLength(float4), 0.0001);
+    assertEquals(
+        "Float vector length test for empty array", 0, ArrayUtils.vectorLength(float1), 0.0001);
+    assertEquals(
+        "Float vector length test for the same value", 2, ArrayUtils.vectorLength(float2), 0.0001);
+    assertEquals(
+        "Float vector length test for normal values",
+        Math.sqrt(15),
+        ArrayUtils.vectorLength(float3),
+        0.0001);
+    assertEquals(
+        "Float vector length test for normal values", 0, ArrayUtils.vectorLength(float4), 0.0001);
 
     long[] long1 = {};
     long[] long2 = {1, 1, 1, 1};
     long[] long3 = {1, 2, 3, -1};
     long[] long4 = {0};
 
-    assertEquals("Long vector length test for empty array", 0, ArrayUtils.vectorLength(long1), 0.0001);
-    assertEquals("Long vector length test for the same value", 2, ArrayUtils.vectorLength(long2), 0.0001);
-    assertEquals("Long vector length test for normal values", Math.sqrt(15), ArrayUtils.vectorLength(long3), 0.0001);
-    assertEquals("Long vector length test for normal values", 0, ArrayUtils.vectorLength(long4), 0.0001);
+    assertEquals(
+        "Long vector length test for empty array", 0, ArrayUtils.vectorLength(long1), 0.0001);
+    assertEquals(
+        "Long vector length test for the same value", 2, ArrayUtils.vectorLength(long2), 0.0001);
+    assertEquals(
+        "Long vector length test for normal values",
+        Math.sqrt(15),
+        ArrayUtils.vectorLength(long3),
+        0.0001);
+    assertEquals(
+        "Long vector length test for normal values", 0, ArrayUtils.vectorLength(long4), 0.0001);
 
     short[] short1 = {};
     short[] short2 = {1, 1, 1, 1};
     short[] short3 = {1, 2, 3, -1};
     short[] short4 = {0};
 
-    assertEquals("Short vector length test for empty array", 0, ArrayUtils.vectorLength(short1), 0.0001);
-    assertEquals("Short vector length test for the same value", 2, ArrayUtils.vectorLength(short2), 0.0001);
-    assertEquals("Short vector length test for normal values", Math.sqrt(15), ArrayUtils.vectorLength(short3), 0.0001);
-    assertEquals("Short vector length test for normal values", 0, ArrayUtils.vectorLength(short4), 0.0001);
+    assertEquals(
+        "Short vector length test for empty array", 0, ArrayUtils.vectorLength(short1), 0.0001);
+    assertEquals(
+        "Short vector length test for the same value", 2, ArrayUtils.vectorLength(short2), 0.0001);
+    assertEquals(
+        "Short vector length test for normal values",
+        Math.sqrt(15),
+        ArrayUtils.vectorLength(short3),
+        0.0001);
+    assertEquals(
+        "Short vector length test for normal values", 0, ArrayUtils.vectorLength(short4), 0.0001);
 
     byte[] byte1 = {};
     byte[] byte2 = {1, 1, 1, 1};
     byte[] byte3 = {1, 2, 3, -1};
     byte[] byte4 = {0};
 
-    assertEquals("Byte vector length test for empty array", 0, ArrayUtils.vectorLength(byte1), 0.0001);
-    assertEquals("Byte vector length test for the same value", 2, ArrayUtils.vectorLength(byte2), 0.0001);
-    assertEquals("Byte vector length test for normal values", Math.sqrt(15), ArrayUtils.vectorLength(byte3), 0.0001);
-    assertEquals("Byte vector length test for normal values", 0, ArrayUtils.vectorLength(byte4), 0.0001);
+    assertEquals(
+        "Byte vector length test for empty array", 0, ArrayUtils.vectorLength(byte1), 0.0001);
+    assertEquals(
+        "Byte vector length test for the same value", 2, ArrayUtils.vectorLength(byte2), 0.0001);
+    assertEquals(
+        "Byte vector length test for normal values",
+        Math.sqrt(15),
+        ArrayUtils.vectorLength(byte3),
+        0.0001);
+    assertEquals(
+        "Byte vector length test for normal values", 0, ArrayUtils.vectorLength(byte4), 0.0001);
+  }
+
+  @Test
+  public void testMinimumAndMinimumLocation() {
+    String[] arr1 = {"", "12", "1234", "1245"};
+
+    assertEquals("String minimum test", "", ArrayUtils.minimum(arr1));
+    assertEquals("String minimum location test", 0, ArrayUtils.minimumLocation(arr1));
+
+    String[] arr2 = {"1234", "12345"};
+    assertEquals(
+        "String minimum test for edge case, strings identical but one is shorter",
+        "1234",
+        ArrayUtils.minimum(arr2));
+    assertEquals(
+        "String minimum location test for edge case, strings identical but one is shorter",
+        0,
+        ArrayUtils.minimumLocation(arr2));
+
+    Integer[] arr3 = {0, 0, 0, -1};
+    assertEquals(
+        "Integer minimum test, testing negative values", new Integer(-1), ArrayUtils.minimum(arr3));
+    assertEquals(
+        "Integer minimum location test, testing negative values",
+        3,
+        ArrayUtils.minimumLocation(arr3));
+
+    int[] arr4 = {0, 0, 0, -1};
+    assertEquals("int minimum test, testing negative values", -1, ArrayUtils.minimum(arr4));
+    assertEquals(
+        "int minimum location test, testing negative values", 3, ArrayUtils.minimumLocation(arr4));
+
+    double[] arr5 = {0.4, 0.401, 0.45, 0.41, 0.49};
+    assertEquals(
+        "double minimum test, testing small margins between values",
+        0.4,
+        ArrayUtils.minimum(arr5),
+        0.0001);
+    assertEquals(
+        "double minimum location test, testing small margins between values",
+        0,
+        ArrayUtils.minimumLocation(arr5));
+  }
+
+  @Test
+  public void testMaximumAndMaximumLocation() {
+    String[] arr1 = {"", "12", "1234", "1245"};
+
+    assertEquals("String maximum test", "1245", ArrayUtils.maximum(arr1));
+    assertEquals("String maximum location test", 3, ArrayUtils.maximumLocation(arr1));
+
+    String[] arr2 = {"1234", "12345"};
+    assertEquals(
+            "String maximum test for edge case, strings identical but one is shorter",
+            "12345",
+            ArrayUtils.maximum(arr2));
+    assertEquals(
+            "String maximum location test for edge case, strings identical but one is shorter",
+            1,
+            ArrayUtils.maximumLocation(arr2));
+
+    Integer[] arr3 = {0, 0, 0, -1};
+    assertEquals(
+            "Integer maximum test, testing negative values", new Integer(0), ArrayUtils.maximum(arr3));
+    assertEquals(
+            "Integer maximum location test, testing negative values",
+            0,
+            ArrayUtils.maximumLocation(arr3));
+
+    int[] arr4 = {0, 0, 0, -1};
+    assertEquals("int maximum test, testing negative values", 0, ArrayUtils.maximum(arr4));
+    assertEquals(
+            "int maximum location test, testing negative values", 0, ArrayUtils.maximumLocation(arr4));
+
+    double[] arr5 = {0.4, 0.401, 0.45, 0.41, 0.49};
+    assertEquals(
+            "double maximum test, testing small margins between values",
+            0.49,
+            ArrayUtils.maximum(arr5),
+            0.0001);
+    assertEquals(
+            "double maximum location test, testing small margins between values",
+            4,
+            ArrayUtils.maximumLocation(arr5));
+  }
+
+  @Test
+  public void testPower() {
+    int[] arr = {1, 2, 3, 4};
+    int[] exp = {1, 1, 1, 1};
+
+    assertArrayEquals("Integer power test", exp, ArrayUtils.power(arr, 0));
+
+    double[] arr1 = {1, 4, 9, 16};
+    double[] exp1 = {1, 2, 3, 4};
+
+    assertArrayEquals("Double power test", exp1, ArrayUtils.power(arr1, 0.5), 0.0001);
   }
 }

@@ -1101,6 +1101,54 @@ public final class ArrayUtils {
   }
 
   /**
+   * Returns the minimum stored value in the array, or MAX_VALUE if the array is empty
+   *
+   * @param arr - the array to find the minimum value of
+   * @return - the minimum value of the array
+   */
+  public static int minimum(int[] arr) {
+    int minValue = Integer.MAX_VALUE;
+
+    for(int value : arr) {
+      minValue = Math.min(minValue, value);
+    }
+
+    return minValue;
+  }
+
+  /**
+   * Returns the minimum stored value in the array, or MAX_VALUE if the array is empty
+   *
+   * @param arr - the array to find the minimum value of
+   * @return - the minimum value of the array
+   */
+  public static double minimum(double[] arr) {
+    double minValue = Double.MAX_VALUE;
+
+    for(double value : arr) {
+      minValue = Math.min(minValue, value);
+    }
+
+    return minValue;
+  }
+
+  /**
+   * Returns the minimum stored value in the array, or MAX_VALUE if the array is empty
+   *
+   * @param arr - the array to find the minimum value of
+   * @return - the minimum value of the array
+   */
+  public static long minimum(long[] arr) {
+    long minValue = Long.MAX_VALUE;
+
+    for(long value : arr) {
+      minValue = Math.min(minValue, value);
+    }
+
+    return minValue;
+  }
+
+  /**
    * Returns the minimum value stored in the array, or null if the array is empty
    *
    * @param arr - the array to find the minimum value for
@@ -1120,6 +1168,54 @@ public final class ArrayUtils {
   }
 
   /**
+   * Returns the maximum stored value in the array, or MAX_VALUE if the array is empty
+   *
+   * @param arr - the array to find the maximum value of
+   * @return - the maximum value of the array
+   */
+  public static int maximum(int[] arr) {
+    int maxValue = Integer.MIN_VALUE;
+
+    for(int value : arr) {
+      maxValue = Math.max(maxValue, value);
+    }
+
+    return maxValue;
+  }
+
+  /**
+   * Returns the maximum stored value in the array, or MIN_VALUE if the array is empty
+   *
+   * @param arr - the array to find the maximum value of
+   * @return - the maximum value of the array
+   */
+  public static double maximum(double[] arr) {
+    double maxValue = -Double.MAX_VALUE;
+
+    for(double value : arr) {
+      maxValue = Math.max(maxValue, value);
+    }
+
+    return maxValue;
+  }
+
+  /**
+   * Returns the maximum stored value in the array, or MIN_VALUE if the array is empty
+   *
+   * @param arr - the array to find the maximum value of
+   * @return - the maximum value of the array
+   */
+  public static long maximum(long[] arr) {
+    long maxValue = Long.MIN_VALUE;
+
+    for(long value : arr) {
+      maxValue = Math.max(maxValue, value);
+    }
+
+    return maxValue;
+  }
+
+  /**
    * Returns the maximum value stored in the array, or null if the array is empty
    *
    * @param arr - the array to find the maximum value for
@@ -1136,6 +1232,66 @@ public final class ArrayUtils {
     }
 
     return maxValue;
+  }
+
+  /**
+   * Returns the index of the array's minimum value, or -1 if the array is empty
+   *
+   * @param arr - the array to find the minimum location for
+   * @return - the index of the minimum value stored in the array
+   */
+  public static int minimumLocation(int[] arr) {
+    int minValue = Integer.MAX_VALUE;
+    int minLocation = -1;
+
+    for(int i = 0; i < arr.length; i++) {
+      if(arr[i] < minValue) {
+        minValue = arr[i];
+        minLocation = i;
+      }
+    }
+
+    return minLocation;
+  }
+
+  /**
+   * Returns the index of the array's minimum value, or -1 if the array is empty
+   *
+   * @param arr - the array to find the minimum location for
+   * @return - the index of the minimum value stored in the array
+   */
+  public static int minimumLocation(double[] arr) {
+    double minValue = Double.MAX_VALUE;
+    int minLocation = -1;
+
+    for(int i = 0; i < arr.length; i++) {
+      if(arr[i] < minValue) {
+        minValue = arr[i];
+        minLocation = i;
+      }
+    }
+
+    return minLocation;
+  }
+
+  /**
+   * Returns the index of the array's minimum value, or -1 if the array is empty
+   *
+   * @param arr - the array to find the minimum location for
+   * @return - the index of the minimum value stored in the array
+   */
+  public static int minimumLocation(long[] arr) {
+    long minValue = Long.MAX_VALUE;
+    int minLocation = -1;
+
+    for(int i = 0; i < arr.length; i++) {
+      if(arr[i] < minValue) {
+        minValue = arr[i];
+        minLocation = i;
+      }
+    }
+
+    return minLocation;
   }
 
   /**
@@ -1163,6 +1319,66 @@ public final class ArrayUtils {
    * Returns the index of the array's minimum value, or -1 if the array is empty
    *
    * @param arr - the array to find the minimum location for
+   * @return - the index of the minimum value stored in the array
+   */
+  public static int maximumLocation(int[] arr) {
+    int maxValue = Integer.MIN_VALUE;
+    int maxLocation = -1;
+
+    for(int i = 0; i < arr.length; i++) {
+      if(arr[i] > maxValue) {
+        maxValue = arr[i];
+        maxLocation = i;
+      }
+    }
+
+    return maxLocation;
+  }
+
+  /**
+   * Returns the index of the array's minimum value, or -1 if the array is empty
+   *
+   * @param arr - the array to find the minimum location for
+   * @return - the index of the minimum value stored in the array
+   */
+  public static int maximumLocation(double[] arr) {
+    double maxValue = -Double.MIN_VALUE;
+    int maxLocation = -1;
+
+    for(int i = 0; i < arr.length; i++) {
+      if(arr[i] > maxValue) {
+        maxValue = arr[i];
+        maxLocation = i;
+      }
+    }
+
+    return maxLocation;
+  }
+
+  /**
+   * Returns the index of the array's minimum value, or -1 if the array is empty
+   *
+   * @param arr - the array to find the minimum location for
+   * @return - the index of the minimum value stored in the array
+   */
+  public static int maximumLocation(long[] arr) {
+    long maxValue = Long.MIN_VALUE;
+    int maxLocation = -1;
+
+    for(int i = 0; i < arr.length; i++) {
+      if(arr[i] > maxValue) {
+        maxValue = arr[i];
+        maxLocation = i;
+      }
+    }
+
+    return maxLocation;
+  }
+
+  /**
+   * Returns the index of the array's minimum value, or -1 if the array is empty
+   *
+   * @param arr - the array to find the minimum location for
    * @param <T> - the array can be any type which extends Comparable
    * @return - the index of the minimum value stored in the array
    */
@@ -1178,5 +1394,113 @@ public final class ArrayUtils {
     }
 
     return maxLocation;
+  }
+
+  /**
+   * Returns the given array with each element raised to the power of the given
+   * power
+   *
+   * @param arr - the array to raise the power of
+   * @param power - the power by which to raise elements of the array
+   * @return - a new array where element[i] = arr[i] ^ power
+   */
+  public static int[] power(int[] arr, int power) {
+    int[] result = new int[arr.length];
+
+    for(int i = 0; i < arr.length; i++) {
+      result[i] = (int) Math.pow(arr[i], power);
+    }
+
+    return result;
+  }
+
+  /**
+   * Returns the given array with each element raised to the power of the given
+   * power
+   *
+   * @param arr - the array to raise the power of
+   * @param power - the power by which to raise elements of the array
+   * @return - a new array where element[i] = arr[i] ^ power
+   */
+  public static double[] power(double[] arr, double power) {
+    double[] result = new double[arr.length];
+
+    for(int i = 0; i < arr.length; i++) {
+      result[i] = Math.pow(arr[i], power);
+    }
+
+    return result;
+  }
+
+  /**
+   * Returns the given array with each element raised to the power of the given
+   * power
+   *
+   * @param arr - the array to raise the power of
+   * @param power - the power by which to raise elements of the array
+   * @return - a new array where element[i] = arr[i] ^ power
+   */
+  public static long[] power(long[] arr, long power) {
+    long[] result = new long[arr.length];
+
+    for(int i = 0; i < arr.length; i++) {
+      result[i] = (long) Math.pow(arr[i], power);
+    }
+
+    return result;
+  }
+
+  /**
+   * Returns the given array with each element raised to the power of the given
+   * power
+   *
+   * @param arr - the array to raise the power of
+   * @param power - the power by which to raise elements of the array
+   * @return - a new array where element[i] = arr[i] ^ power
+   */
+  public static float[] power(float[] arr, float power) {
+    float[] result = new float[arr.length];
+
+    for(int i = 0; i < arr.length; i++) {
+      result[i] = (float) Math.pow(arr[i], power);
+    }
+
+    return result;
+  }
+
+  /**
+   * Returns the given array with each element raised to the power of the given
+   * power
+   *
+   * @param arr - the array to raise the power of
+   * @param power - the power by which to raise elements of the array
+   * @return - a new array where element[i] = arr[i] ^ power
+   */
+  public static short[] power(short[] arr, short power) {
+    short[] result = new short[arr.length];
+
+    for(int i = 0; i < arr.length; i++) {
+      result[i] = (short) Math.pow(arr[i], power);
+    }
+
+    return result;
+  }
+
+  /**
+   * Returns the given array with each element raised to the power of the given
+   * power
+   *
+   * @param arr - the array to raise the power of
+   * @param power - the power by which to raise elements of the array
+   * @return - a new array where element[i] = arr[i] ^ power
+   */
+  public static byte[] power(byte[] arr, byte power) {
+    byte[] result = new byte[arr.length];
+
+    for(int i = 0; i < arr.length; i++) {
+      result[i] = (byte) Math.pow(arr[i], power);
+    }
+
+    return result;
   }
 }

@@ -597,4 +597,39 @@ public class ArrayUtilsTests {
 
     assertArrayEquals("Double power test", exp1, ArrayUtils.power(arr1, 0.5), 0.0001);
   }
+
+  @Test
+  public void testConcat() {
+    String[] arr1 = {"Hello"};
+    String[] arr2 = {"World"};
+    String[] exp1 = {"Hello", "World"};
+
+    assertArrayEquals("String concat() Normal Test", exp1, ArrayUtils.concat(arr1, arr2));
+    assertArrayEquals("String concat() Test for first array being empty", exp1, ArrayUtils.concat(new String[0], exp1));
+    assertArrayEquals("String concat() Test for second array being empty", exp1, ArrayUtils.concat(exp1, new String[0]));
+
+    int[] arr3 = {1, 2, 3};
+    int[] arr4 = {4, 5, 6};
+    int[] exp2 = {1, 2, 3, 4, 5, 6};
+
+    assertArrayEquals("Normal int concat() test", exp2, ArrayUtils.concat(arr3, arr4));
+    assertArrayEquals("int concat() test for first array being empty", exp2, ArrayUtils.concat(new int[0], exp2));
+    assertArrayEquals("int concat() test for second array being empty", exp2, ArrayUtils.concat(exp2, new int[0]));
+
+    double[] arr5 = {1, 2, 3};
+    double[] arr6 = {4, 5, 6};
+    double[] exp3 = {1, 2, 3, 4, 5, 6};
+
+    assertArrayEquals("Normal double concat() test", exp3, ArrayUtils.concat(arr5, arr6), 0.0001);
+    assertArrayEquals("double concat() test for first array being empty", exp3, ArrayUtils.concat(new double[0], exp3), 0.0001);
+    assertArrayEquals("double concat() test for second array being empty", exp3, ArrayUtils.concat(exp3, new double[0]), 0.0001);
+
+    long[] arr7 = {1, 2, 3};
+    long[] arr8 = {4, 5, 6};
+    long[] exp4 = {1, 2, 3, 4, 5, 6};
+
+    assertArrayEquals("Normal long concat() test", exp4, ArrayUtils.concat(arr7, arr8));
+    assertArrayEquals("long concat() test for first array being empty", exp4, ArrayUtils.concat(new long[0], exp4));
+    assertArrayEquals("long concat() test for second array being empty", exp4, ArrayUtils.concat(exp4, new long[0]));
+  }
 }

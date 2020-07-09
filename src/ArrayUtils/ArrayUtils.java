@@ -1109,7 +1109,7 @@ public final class ArrayUtils {
   public static int minimum(int[] arr) {
     int minValue = Integer.MAX_VALUE;
 
-    for(int value : arr) {
+    for (int value : arr) {
       minValue = Math.min(minValue, value);
     }
 
@@ -1125,7 +1125,7 @@ public final class ArrayUtils {
   public static double minimum(double[] arr) {
     double minValue = Double.MAX_VALUE;
 
-    for(double value : arr) {
+    for (double value : arr) {
       minValue = Math.min(minValue, value);
     }
 
@@ -1141,7 +1141,7 @@ public final class ArrayUtils {
   public static long minimum(long[] arr) {
     long minValue = Long.MAX_VALUE;
 
-    for(long value : arr) {
+    for (long value : arr) {
       minValue = Math.min(minValue, value);
     }
 
@@ -1152,8 +1152,7 @@ public final class ArrayUtils {
    * Returns the minimum value stored in the array, or null if the array is empty
    *
    * @param arr - the array to find the minimum value for
-   * @param <T> - the type for the array can be any class which is a subclass of
-   *           Comparable
+   * @param <T> - the type for the array can be any class which is a subclass of Comparable
    * @return - the minimum value in the array
    */
   public static <T extends Comparable<T>> T minimum(T[] arr) {
@@ -1176,7 +1175,7 @@ public final class ArrayUtils {
   public static int maximum(int[] arr) {
     int maxValue = Integer.MIN_VALUE;
 
-    for(int value : arr) {
+    for (int value : arr) {
       maxValue = Math.max(maxValue, value);
     }
 
@@ -1192,7 +1191,7 @@ public final class ArrayUtils {
   public static double maximum(double[] arr) {
     double maxValue = -Double.MAX_VALUE;
 
-    for(double value : arr) {
+    for (double value : arr) {
       maxValue = Math.max(maxValue, value);
     }
 
@@ -1208,7 +1207,7 @@ public final class ArrayUtils {
   public static long maximum(long[] arr) {
     long maxValue = Long.MIN_VALUE;
 
-    for(long value : arr) {
+    for (long value : arr) {
       maxValue = Math.max(maxValue, value);
     }
 
@@ -1219,14 +1218,13 @@ public final class ArrayUtils {
    * Returns the maximum value stored in the array, or null if the array is empty
    *
    * @param arr - the array to find the maximum value for
-   * @param <T> - the type for the array can be any class which is a subclass of
-   *           Comparable.
+   * @param <T> - the type for the array can be any class which is a subclass of Comparable.
    * @return - the minimum value in the array
    */
   public static <T extends Comparable<T>> T maximum(T[] arr) {
     T maxValue = null;
-    for(T value : arr) {
-      if(maxValue == null || value.compareTo(maxValue) > 0) {
+    for (T value : arr) {
+      if (maxValue == null || value.compareTo(maxValue) > 0) {
         maxValue = value;
       }
     }
@@ -1244,8 +1242,8 @@ public final class ArrayUtils {
     int minValue = Integer.MAX_VALUE;
     int minLocation = -1;
 
-    for(int i = 0; i < arr.length; i++) {
-      if(arr[i] < minValue) {
+    for (int i = 0; i < arr.length; i++) {
+      if (arr[i] < minValue) {
         minValue = arr[i];
         minLocation = i;
       }
@@ -1264,8 +1262,8 @@ public final class ArrayUtils {
     double minValue = Double.MAX_VALUE;
     int minLocation = -1;
 
-    for(int i = 0; i < arr.length; i++) {
-      if(arr[i] < minValue) {
+    for (int i = 0; i < arr.length; i++) {
+      if (arr[i] < minValue) {
         minValue = arr[i];
         minLocation = i;
       }
@@ -1284,8 +1282,8 @@ public final class ArrayUtils {
     long minValue = Long.MAX_VALUE;
     int minLocation = -1;
 
-    for(int i = 0; i < arr.length; i++) {
-      if(arr[i] < minValue) {
+    for (int i = 0; i < arr.length; i++) {
+      if (arr[i] < minValue) {
         minValue = arr[i];
         minLocation = i;
       }
@@ -1305,8 +1303,8 @@ public final class ArrayUtils {
     T minValue = null;
     int minLocation = -1;
 
-    for(int i = 0; i < arr.length; i++) {
-      if(minValue == null || arr[i].compareTo(minValue) < 0) {
+    for (int i = 0; i < arr.length; i++) {
+      if (minValue == null || arr[i].compareTo(minValue) < 0) {
         minValue = arr[i];
         minLocation = i;
       }
@@ -1325,8 +1323,8 @@ public final class ArrayUtils {
     int maxValue = Integer.MIN_VALUE;
     int maxLocation = -1;
 
-    for(int i = 0; i < arr.length; i++) {
-      if(arr[i] > maxValue) {
+    for (int i = 0; i < arr.length; i++) {
+      if (arr[i] > maxValue) {
         maxValue = arr[i];
         maxLocation = i;
       }
@@ -1345,8 +1343,8 @@ public final class ArrayUtils {
     double maxValue = -Double.MIN_VALUE;
     int maxLocation = -1;
 
-    for(int i = 0; i < arr.length; i++) {
-      if(arr[i] > maxValue) {
+    for (int i = 0; i < arr.length; i++) {
+      if (arr[i] > maxValue) {
         maxValue = arr[i];
         maxLocation = i;
       }
@@ -1365,8 +1363,8 @@ public final class ArrayUtils {
     long maxValue = Long.MIN_VALUE;
     int maxLocation = -1;
 
-    for(int i = 0; i < arr.length; i++) {
-      if(arr[i] > maxValue) {
+    for (int i = 0; i < arr.length; i++) {
+      if (arr[i] > maxValue) {
         maxValue = arr[i];
         maxLocation = i;
       }
@@ -1386,8 +1384,8 @@ public final class ArrayUtils {
     T maxValue = null;
     int maxLocation = -1;
 
-    for(int i = 0; i < arr.length; i++) {
-      if(maxValue == null || arr[i].compareTo(maxValue) > 0) {
+    for (int i = 0; i < arr.length; i++) {
+      if (maxValue == null || arr[i].compareTo(maxValue) > 0) {
         maxValue = arr[i];
         maxLocation = i;
       }
@@ -1397,8 +1395,7 @@ public final class ArrayUtils {
   }
 
   /**
-   * Returns the given array with each element raised to the power of the given
-   * power
+   * Returns the given array with each element raised to the power of the given power
    *
    * @param arr - the array to raise the power of
    * @param power - the power by which to raise elements of the array
@@ -1407,7 +1404,7 @@ public final class ArrayUtils {
   public static int[] power(int[] arr, int power) {
     int[] result = new int[arr.length];
 
-    for(int i = 0; i < arr.length; i++) {
+    for (int i = 0; i < arr.length; i++) {
       result[i] = (int) Math.pow(arr[i], power);
     }
 
@@ -1415,8 +1412,7 @@ public final class ArrayUtils {
   }
 
   /**
-   * Returns the given array with each element raised to the power of the given
-   * power
+   * Returns the given array with each element raised to the power of the given power
    *
    * @param arr - the array to raise the power of
    * @param power - the power by which to raise elements of the array
@@ -1425,7 +1421,7 @@ public final class ArrayUtils {
   public static double[] power(double[] arr, double power) {
     double[] result = new double[arr.length];
 
-    for(int i = 0; i < arr.length; i++) {
+    for (int i = 0; i < arr.length; i++) {
       result[i] = Math.pow(arr[i], power);
     }
 
@@ -1433,8 +1429,7 @@ public final class ArrayUtils {
   }
 
   /**
-   * Returns the given array with each element raised to the power of the given
-   * power
+   * Returns the given array with each element raised to the power of the given power
    *
    * @param arr - the array to raise the power of
    * @param power - the power by which to raise elements of the array
@@ -1443,7 +1438,7 @@ public final class ArrayUtils {
   public static long[] power(long[] arr, long power) {
     long[] result = new long[arr.length];
 
-    for(int i = 0; i < arr.length; i++) {
+    for (int i = 0; i < arr.length; i++) {
       result[i] = (long) Math.pow(arr[i], power);
     }
 
@@ -1451,8 +1446,7 @@ public final class ArrayUtils {
   }
 
   /**
-   * Returns the given array with each element raised to the power of the given
-   * power
+   * Returns the given array with each element raised to the power of the given power
    *
    * @param arr - the array to raise the power of
    * @param power - the power by which to raise elements of the array
@@ -1461,7 +1455,7 @@ public final class ArrayUtils {
   public static float[] power(float[] arr, float power) {
     float[] result = new float[arr.length];
 
-    for(int i = 0; i < arr.length; i++) {
+    for (int i = 0; i < arr.length; i++) {
       result[i] = (float) Math.pow(arr[i], power);
     }
 
@@ -1469,8 +1463,7 @@ public final class ArrayUtils {
   }
 
   /**
-   * Returns the given array with each element raised to the power of the given
-   * power
+   * Returns the given array with each element raised to the power of the given power
    *
    * @param arr - the array to raise the power of
    * @param power - the power by which to raise elements of the array
@@ -1479,7 +1472,7 @@ public final class ArrayUtils {
   public static short[] power(short[] arr, short power) {
     short[] result = new short[arr.length];
 
-    for(int i = 0; i < arr.length; i++) {
+    for (int i = 0; i < arr.length; i++) {
       result[i] = (short) Math.pow(arr[i], power);
     }
 
@@ -1487,8 +1480,7 @@ public final class ArrayUtils {
   }
 
   /**
-   * Returns the given array with each element raised to the power of the given
-   * power
+   * Returns the given array with each element raised to the power of the given power
    *
    * @param arr - the array to raise the power of
    * @param power - the power by which to raise elements of the array
@@ -1497,9 +1489,82 @@ public final class ArrayUtils {
   public static byte[] power(byte[] arr, byte power) {
     byte[] result = new byte[arr.length];
 
-    for(int i = 0; i < arr.length; i++) {
+    for (int i = 0; i < arr.length; i++) {
       result[i] = (byte) Math.pow(arr[i], power);
     }
+
+    return result;
+  }
+
+  /**
+   * Returns a new array representing the concatenation of the two parameter arrays.
+   *
+   * @param arr1 - the first array to appear in the concatenation
+   * @param arr2 - the second array to appear in the concatenation
+   * @param <T> - this can be done for any type T.
+   * @return - a new array of length {@code arr1.length + arr2.length} that contains elements of
+   *     arr1 from index 0 to {@code arr1.length - 1} and elements of arr2 from {@code arr1.length}
+   *     to {@code arr1.length + arr2.length - 1}
+   */
+  public static <T> T[] concat(T[] arr1, T[] arr2) {
+    assert (arr1 != null && arr2 != null);
+
+    T[] result = Arrays.copyOf(arr1, arr1.length + arr2.length);
+    System.arraycopy(arr2, 0, result, arr1.length, arr2.length);
+
+    return result;
+  }
+
+  /**
+   * Returns a new array representing the concatenation of the two parameter arrays.
+   *
+   * @param arr1 - the first array to appear in the concatenation
+   * @param arr2 - the second array to appear in the concatenation
+   * @return - a new array of length {@code arr1.length + arr2.length} that contains elements of
+   *     arr1 from index 0 to {@code arr1.length - 1} and elements of arr2 from {@code arr1.length}
+   *     to {@code arr1.length + arr2.length - 1}
+   */
+  public static int[] concat(int[] arr1, int[] arr2) {
+    assert (arr1 != null && arr2 != null);
+
+    int[] result = Arrays.copyOf(arr1, arr1.length + arr2.length);
+    System.arraycopy(arr2, 0, result, arr1.length, arr2.length);
+
+    return result;
+  }
+
+  /**
+   * Returns a new array representing the concatenation of the two parameter arrays.
+   *
+   * @param arr1 - the first array to appear in the concatenation
+   * @param arr2 - the second array to appear in the concatenation
+   * @return - a new array of length {@code arr1.length + arr2.length} that contains elements of
+   *     arr1 from index 0 to {@code arr1.length - 1} and elements of arr2 from {@code arr1.length}
+   *     to {@code arr1.length + arr2.length - 1}
+   */
+  public static double[] concat(double[] arr1, double[] arr2) {
+    assert (arr1 != null && arr2 != null);
+
+    double[] result = Arrays.copyOf(arr1, arr1.length + arr2.length);
+    System.arraycopy(arr2, 0, result, arr1.length, arr2.length);
+
+    return result;
+  }
+
+  /**
+   * Returns a new array representing the concatenation of the two parameter arrays.
+   *
+   * @param arr1 - the first array to appear in the concatenation
+   * @param arr2 - the second array to appear in the concatenation
+   * @return - a new array of length {@code arr1.length + arr2.length} that contains elements of
+   *     arr1 from index 0 to {@code arr1.length - 1} and elements of arr2 from {@code arr1.length}
+   *     to {@code arr1.length + arr2.length - 1}
+   */
+  public static long[] concat(long[] arr1, long[] arr2) {
+    assert (arr1 != null && arr2 != null);
+
+    long[] result = Arrays.copyOf(arr1, arr1.length + arr2.length);
+    System.arraycopy(arr2, 0, result, arr1.length, arr2.length);
 
     return result;
   }
